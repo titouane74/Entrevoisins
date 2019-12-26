@@ -4,4 +4,6 @@
     <string name="tab_favorites_title">Favorites</string>
     <string name="img_neighbour">Image Voisin</string>
     <string name="tv_about_me">A propos de moi</string>
+    <string name="tv_about_me_hint">Qui je suis</string>
+
 </resources>
