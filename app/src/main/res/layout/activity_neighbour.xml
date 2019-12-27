@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,123 +7,130 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+
+    <ImageView
+        android:id="@+id/btnfloat_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_keyboard_backspace_24px"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:clickable="true"
+        android:background="#00FFFFFF"
+        />
+
+    <ImageView
+        android:id="@+id/imageNeighbour"
+        android:layout_width="414dp"
+        android:layout_height="250dp"
+        tools:srcCompat="@tools:sample/avatars[3]"
+        android:contentDescription="@string/img_neighbour"/>
+
+    <TextView
+        android:id="@+id/nameNeighbour_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_alignBottom="@id/imageNeighbour"
+        android:layout_marginBottom="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:hint="Name"
+        android:textColor="@color/colorBlanc"
+        />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardInfoNeighbour"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/imageNeighbour"
-            android:layout_width="414dp"
-            android:layout_height="274dp"
-            tools:srcCompat="@tools:sample/avatars[3]"
-            android:contentDescription="@string/img_neighbour"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/imageNeighbour"
+        app:cardCornerRadius="5dp">
 
-        <TextView
-            android:id="@+id/nameNeighbour_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_alignBottom="@id/imageNeighbour"
-            android:layout_marginBottom="20dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:hint="Name"
-            android:textColor="@color/colorBlanc"
-            />
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardInfoNeighbour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/imageNeighbour"
-            app:cardCornerRadius="5dp">
-
-            <RelativeLayout
-                android:id="@+id/cardInfoNeighbour_rl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp">
-                <TextView
-                    android:id="@+id/cardNameNeighbour"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Name"
-                    android:textSize="30sp"
-                    />
-
-                <TextView
-                    android:id="@+id/cardAddressNeighbour"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:hint="Address"
-                    android:textSize="20sp"
-                    android:layout_below="@id/cardNameNeighbour"
-                    />
-
-                <TextView
-                    android:id="@+id/cardSiteNeighbour"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:hint="Site"
-                    android:textSize="20sp"
-                    android:layout_below="@id/cardPhoneNeighbour"
-                    />
-
-                <TextView
-                    android:id="@+id/cardPhoneNeighbour"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:hint="Phone"
-                    android:textSize="20sp"
-                    android:layout_below="@id/cardAddressNeighbour"
-                    />
-
-            </RelativeLayout>
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardAboutMe"
+        <RelativeLayout
+            android:id="@+id/cardInfoNeighbour_rl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cardInfoNeighbour"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            app:cardCornerRadius="5dp"
-            >
+            android:layout_marginLeft="10dp">
 
-            <RelativeLayout
-                android:id="@+id/cardAboutMe_rl"
+
+            <TextView
+                android:id="@+id/cardNameNeighbour"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp">
-                <TextView
-                    android:id="@+id/cardTitleAboutMe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/tv_about_me"
-                    android:textSize="30sp"
-                    />
+                android:hint="Name"
+                android:textSize="24sp"
+                />
 
-                <TextView
-                    android:id="@+id/cardTextAboutMe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:hint="@string/tv_about_me_hint"
-                    android:textSize="20sp"
-                    android:layout_below="@id/cardTitleAboutMe"
-                    />
-            </RelativeLayout>
+            <ImageView
+                android:id="@+id/imgAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_room_24px"
+                android:layout_below="@id/cardNameNeighbour"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                />
 
-        </android.support.v7.widget.CardView>
+            <TextView
+                android:id="@+id/cardAddressNeighbour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/imgAddress"
+                android:layout_alignTop="@id/imgAddress"
+                android:hint="Address"
+                android:textSize="18sp"
+                android:layout_below="@id/cardNameNeighbour"
+                />
 
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/imgPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_phone_24px"
+                android:layout_below="@id/imgAddress"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                />
+            <TextView
+                android:id="@+id/cardPhoneNeighbour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/imgPhone"
+                android:layout_marginLeft="10dp"
+                android:layout_alignTop="@id/imgPhone"
+                android:hint="Phone"
+                android:textSize="18sp"
+                android:layout_below="@id/cardAddressNeighbour"
+                />
+
+            <ImageView
+                android:id="@+id/imgSite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_language_24px"
+                android:layout_below="@id/imgPhone"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                />
+            <TextView
+                android:id="@+id/cardSiteNeighbour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/imgSite"
+                android:layout_alignTop="@id/imgSite"
+                android:hint="Site"
+                android:textSize="18sp"
+                android:layout_below="@id/cardPhoneNeighbour"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btnfloat_favorit"
@@ -132,19 +139,44 @@
         android:clickable="true"
         android:src="@drawable/ic_star_border_yellow_24dp"
         app:backgroundTint="@color/colorBlanc"
-        app:layout_anchor="@id/cardNameNeighbour"
-        app:layout_anchorGravity="top|right"
+        android:layout_marginTop="220dp"
+        android:layout_alignRight="@id/cardInfoNeighbour"
         />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btnfloat_return"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardAboutMe"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/ic_keyboard_backspace_24px"
-        app:backgroundTint="#00FFFFFF"
-        app:layout_anchor="@id/imageNeighbour"
-        app:layout_anchorGravity="top|left|start"
-        />
+        android:layout_below="@id/cardInfoNeighbour"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="5dp"
+        >
 
-</android.support.design.widget.CoordinatorLayout>
+        <RelativeLayout
+            android:id="@+id/cardAboutMe_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/cardTitleAboutMe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/tv_about_me"
+                android:textSize="30sp"
+                />
+
+            <TextView
+                android:id="@+id/cardTextAboutMe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/tv_about_me_hint"
+                android:textSize="20sp"
+                android:layout_below="@id/cardTitleAboutMe"
+                />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
