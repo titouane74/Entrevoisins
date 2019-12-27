@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 
 import butterknife.BindView;
@@ -34,6 +33,8 @@ public class NeighbourActivity extends AppCompatActivity {
     FloatingActionButton mBtnFloatFavoris;
 
     private static final String TAG = "NeighbourActivity";
+    private static final String BTN_NOFAVORI = "NOFAVORI";
+    private static final String BTN_FAVORI = "FAVORI";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,19 @@ public class NeighbourActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        mBtnFloatFavoris.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if ( mBtnFloatFavoris.getTag() == BTN_FAVORI) {
+                    mBtnFloatFavoris.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+                    mBtnFloatFavoris.setTag(BTN_NOFAVORI);
+                } else {
+                    mBtnFloatFavoris.setImageResource(R.drawable.ic_star_yellow_24dp);
+                    mBtnFloatFavoris.setTag(BTN_FAVORI);
+                }
             }
         });
     }

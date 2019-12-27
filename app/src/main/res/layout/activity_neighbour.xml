@@ -141,6 +141,7 @@
         android:layout_alignTop="@id/cardInfoNeighbour"
         android:layout_marginTop="-30dp"
         android:layout_alignRight="@id/cardInfoNeighbour"
+        android:tag="@string/btn_nofavori"
         />
     <android.support.v7.widget.CardView
         android:id="@+id/cardAboutMe"

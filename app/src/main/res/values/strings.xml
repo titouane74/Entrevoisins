@@ -5,5 +5,6 @@
     <string name="img_neighbour">Image Voisin</string>
     <string name="tv_about_me">A propos de moi</string>
     <string name="tv_about_me_hint">Qui je suis</string>
+    <string name="btn_nofavori">NOFAVORI</string>
 
 </resources>
