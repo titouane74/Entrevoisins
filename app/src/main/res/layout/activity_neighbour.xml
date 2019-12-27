@@ -8,35 +8,36 @@
     android:orientation="vertical">
 
 
+
     <ImageView
-        android:id="@+id/btnfloat_return"
+        android:id="@+id/img_Neighbour"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:contentDescription="@string/img_neighbour"
+        tools:srcCompat="@tools:sample/avatars[3]"
+        android:scaleType="fitXY"
+        />
+
+    <ImageButton
+        android:id="@+id/imgbtn_return"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_keyboard_backspace_24px"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:clickable="true"
         android:background="#00FFFFFF"
         />
-
-    <ImageView
-        android:id="@+id/imageNeighbour"
-        android:layout_width="414dp"
-        android:layout_height="250dp"
-        tools:srcCompat="@tools:sample/avatars[3]"
-        android:contentDescription="@string/img_neighbour"/>
 
     <TextView
         android:id="@+id/nameNeighbour_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_alignBottom="@id/imageNeighbour"
+        android:layout_alignBottom="@id/img_Neighbour"
         android:layout_marginBottom="20dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:hint="Name"
-        android:textColor="@color/colorBlanc"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
         />
 
     <android.support.v7.widget.CardView
@@ -46,7 +47,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_below="@id/imageNeighbour"
+        android:layout_below="@id/img_Neighbour"
         app:cardCornerRadius="5dp">
 
         <RelativeLayout
@@ -61,7 +62,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name"
-                android:textSize="24sp"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
                 />
 
             <ImageView
@@ -70,8 +72,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_room_24px"
                 android:layout_below="@id/cardNameNeighbour"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 />
 
             <TextView
@@ -82,7 +83,7 @@
                 android:layout_toRightOf="@id/imgAddress"
                 android:layout_alignTop="@id/imgAddress"
                 android:hint="Address"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:layout_below="@id/cardNameNeighbour"
                 />
 
@@ -92,8 +93,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_phone_24px"
                 android:layout_below="@id/imgAddress"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 />
             <TextView
                 android:id="@+id/cardPhoneNeighbour"
@@ -103,7 +103,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_alignTop="@id/imgPhone"
                 android:hint="Phone"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:layout_below="@id/cardAddressNeighbour"
                 />
 
@@ -113,8 +113,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_language_24px"
                 android:layout_below="@id/imgPhone"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 />
             <TextView
                 android:id="@+id/cardSiteNeighbour"
@@ -124,7 +123,7 @@
                 android:layout_toRightOf="@id/imgSite"
                 android:layout_alignTop="@id/imgSite"
                 android:hint="Site"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:layout_below="@id/cardPhoneNeighbour"
                 />
 
@@ -133,7 +132,7 @@
     </android.support.v7.widget.CardView>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btnfloat_favorit"
+        android:id="@+id/btnfloat_favoris"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -164,16 +163,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/tv_about_me"
-                android:textSize="30sp"
+                android:textSize="18sp"
                 />
 
             <TextView
                 android:id="@+id/cardTextAboutMe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:hint="@string/tv_about_me_hint"
-                android:textSize="20sp"
+                android:textSize="14sp"
                 android:layout_below="@id/cardTitleAboutMe"
                 />
         </RelativeLayout>
