@@ -3,7 +3,6 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -66,20 +65,18 @@ public class NeighbourActivity extends AppCompatActivity {
     }
 
     private void getIncomingIntent() {
-        Log.d(TAG, "getIncomingIntent: checking for incoming intents");
 
-        if (getIntent().hasExtra("name") && getIntent().hasExtra("avatarUrl")) {
-            Log.d(TAG, "getIncomingIntent: found intent extras");
+        if (getIntent().hasExtra("name") && getIntent().hasExtra("avatarUrl") && getIntent().hasExtra("favori")) {
 
             String name = getIntent().getStringExtra("name");
             String avatarUrl = getIntent().getStringExtra("avatarUrl");
+            boolean isFavori = getIntent().getBooleanExtra("favori",false);
 
-            setInfoNeighbour(name, avatarUrl);
+            setInfoNeighbour(name, avatarUrl,isFavori);
         }
     }
 
-    private void setInfoNeighbour(String name, String avatarUrl) {
-        Log.d(TAG, "setInfoNeighbour: setting the image and the name");
+    private void setInfoNeighbour(String name, String avatarUrl,boolean isFavori) {
 
         mNameNeigbourTv.setText(name);
         mCardNameNeighbour.setText(name);
@@ -89,6 +86,14 @@ public class NeighbourActivity extends AppCompatActivity {
                 .load(avatarUrl)
                 .into(mImgNeighbour);
 
+
+        if (isFavori) {
+            mBtnFloatFavoris.setImageResource(R.drawable.ic_star_yellow_24dp);
+            mBtnFloatFavoris.setTag(BTN_FAVORI);
+        } else {
+            mBtnFloatFavoris.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+            mBtnFloatFavoris.setTag(BTN_NOFAVORI);
+        }
     }
 
 }

@@ -1,5 +1,6 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
 
@@ -10,6 +11,10 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.*;
 
 /**
@@ -28,9 +33,8 @@ public class NeighbourActivityTest {
 
     @Test
     public void testLaunch() {
-        View view = mActivity.findViewById(R.id.nameNeighbour_tv);
 
-        assertNotNull(view);
+        assertNotNull(mActivity.findViewById(R.id.nameNeighbour_tv));
     }
 
     @After
