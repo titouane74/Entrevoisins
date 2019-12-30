@@ -28,6 +28,7 @@ public class FavoriFragment extends Fragment {
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
 
+    public FavoriFragment() {}
 
     /**
      * Create and return a new instance
@@ -54,8 +55,8 @@ public class FavoriFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
-//        initListFavori();
-        initList();
+        initListFavori();
+//        initList();
         return view;
     }
 
@@ -64,11 +65,11 @@ public class FavoriFragment extends Fragment {
      */
     private void initListFavori() {
         mNeighbours = mApiService.getNeighboursFavori();
-        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
+        mRecyclerView.setAdapter(new MyFavoriRecyclerViewAdapter(mNeighbours));
     }
     private void initList() {
         mNeighbours = mApiService.getNeighbours();
-        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
+        mRecyclerView.setAdapter(new MyFavoriRecyclerViewAdapter(mNeighbours));
     }
 
 
@@ -88,11 +89,11 @@ public class FavoriFragment extends Fragment {
      * Fired if the user clicks on a delete button
      * @param event
      */
-    @Subscribe
+/*    @Subscribe
     public void onDeleteNeighbour(DeleteNeighbourEvent event) {
         mApiService.deleteNeighbour(event.neighbour);
         initListFavori();
-    }
+    }*/
 
 
 }

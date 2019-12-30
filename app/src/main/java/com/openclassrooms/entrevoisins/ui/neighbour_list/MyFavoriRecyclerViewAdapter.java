@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 
 public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRecyclerViewAdapter.ViewHolder> {
 
-    private final String TAG = "MyNeighbourRVAdap";
+    private final String TAG = "MyFavoriRVAdap";
     private final List<Neighbour> mNeighbours;
     private Context mContext;
 
@@ -88,12 +88,14 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.item_list_avatar)
+        @BindView(R.id.item_list_avatar_fav)
         public ImageView mNeighbourAvatar;
-        @BindView(R.id.item_list_name)
+        @BindView(R.id.item_list_name_fav)
         public TextView mNeighbourName;
+/*
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
+*/
 
         public ViewHolder(View view) {
             super(view);
