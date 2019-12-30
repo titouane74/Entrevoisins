@@ -59,27 +59,19 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
             }
         });*/
 
-        holder.mNeighbourName.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openNeighbourActivity(neighbour);
+
+                Intent lIntentNeighbourActvitity = new Intent(mContext, NeighbourActivity.class);
+                lIntentNeighbourActvitity.putExtra("name", neighbour.getName());
+                lIntentNeighbourActvitity.putExtra("avatarUrl", neighbour.getAvatarUrl());
+                lIntentNeighbourActvitity.putExtra("favori", neighbour.isFavori());
+                lIntentNeighbourActvitity.putExtra("id",neighbour.getId());
+                mContext.startActivity(lIntentNeighbourActvitity);
             }
         });
-        holder.mNeighbourAvatar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openNeighbourActivity(neighbour);
-            }
-        });
-    }
 
-    public void openNeighbourActivity(Neighbour pNeighbour) {
-
-        Intent lIntentNeighbourActvitity = new Intent(mContext, NeighbourActivity.class);
-        lIntentNeighbourActvitity.putExtra("name", pNeighbour.getName());
-        lIntentNeighbourActvitity.putExtra("avatarUrl", pNeighbour.getAvatarUrl());
-        lIntentNeighbourActvitity.putExtra("favori", pNeighbour.isFavori());
-        mContext.startActivity(lIntentNeighbourActvitity);
     }
 
     @Override
