@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,20 +22,27 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourPagerAdapter.NEIGHBOUR;
+
 
 public class NeighbourFragment extends Fragment {
+
+    private static String TAG = "NEIGHFRAGMENT";
 
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
-
+    private String mOnglet;
 
     /**
      * Create and return a new instance
      * @return @{@link NeighbourFragment}
      */
-    public static NeighbourFragment newInstance() {
+    public static NeighbourFragment newInstance(String pOnglet) {
         NeighbourFragment fragment = new NeighbourFragment();
+        Bundle arg = new Bundle();
+        arg.putString("onglet",pOnglet);
+        fragment.setArguments(arg);
         return fragment;
     }
 
@@ -42,6 +50,7 @@ public class NeighbourFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mApiService = DI.getNeighbourApiService();
+        mOnglet = getArguments().getString("onglet");
     }
 
     @Override
@@ -49,11 +58,16 @@ public class NeighbourFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_neighbour_list, container, false);
         Context context = view.getContext();
+
         mRecyclerView = (RecyclerView) view;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
-        initList();
+        if (mOnglet == NEIGHBOUR) {
+            initList();
+        } else {
+            initListFavori();
+        }
 
         return view;
     }
@@ -64,6 +78,11 @@ public class NeighbourFragment extends Fragment {
     private void initList() {
         mNeighbours = mApiService.getNeighbours();
         mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
+    }
+
+    private void initListFavori() {
+        mNeighbours = mApiService.getNeighboursFavori();
+        mRecyclerView.setAdapter(new MyFavoriRecyclerViewAdapter(mNeighbours));
     }
 
     @Override

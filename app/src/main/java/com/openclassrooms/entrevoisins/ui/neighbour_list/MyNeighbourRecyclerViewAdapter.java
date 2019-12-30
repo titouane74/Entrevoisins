@@ -25,7 +25,6 @@ import butterknife.ButterKnife;
 
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
-    private final String TAG = "MyNeighbourRVAdap";
     private final List<Neighbour> mNeighbours;
     private Context mContext;
 
@@ -46,6 +45,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         Neighbour neighbour = mNeighbours.get(position);
         holder.mNeighbourName.setText(neighbour.getName());
 
+
         Glide.with(holder.mNeighbourAvatar.getContext())
                 .load(neighbour.getAvatarUrl())
                 .apply(RequestOptions.circleCropTransform())
@@ -61,19 +61,16 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openNeighbourActivity(neighbour);
+
+                Intent lIntentNeighbourActvitity = new Intent(mContext, NeighbourActivity.class);
+                lIntentNeighbourActvitity.putExtra("name", neighbour.getName());
+                lIntentNeighbourActvitity.putExtra("avatarUrl", neighbour.getAvatarUrl());
+                lIntentNeighbourActvitity.putExtra("favori", neighbour.isFavori());
+                lIntentNeighbourActvitity.putExtra("id",neighbour.getId());
+                mContext.startActivity(lIntentNeighbourActvitity);
             }
         });
 
-    }
-
-    public void openNeighbourActivity(Neighbour pNeighbour) {
-
-        Intent lIntentNeighbourActvitity = new Intent(mContext, NeighbourActivity.class);
-        lIntentNeighbourActvitity.putExtra("name", pNeighbour.getName());
-        lIntentNeighbourActvitity.putExtra("avatarUrl", pNeighbour.getAvatarUrl());
-        lIntentNeighbourActvitity.putExtra("favori", pNeighbour.isFavori());
-        mContext.startActivity(lIntentNeighbourActvitity);
     }
 
     @Override

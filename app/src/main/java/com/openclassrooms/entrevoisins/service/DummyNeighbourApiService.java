@@ -33,7 +33,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         //TODO - Filtre des favoris
         List<Neighbour> lFavori = new ArrayList<>();
 
-        for (int i = 0; i <= neighbours.size(); i++) {
+        for (int i = 0; i < neighbours.size(); i++) {
             if (neighbours.get(i).isFavori()){
                 lFavori.add(neighbours.get(i));
             }

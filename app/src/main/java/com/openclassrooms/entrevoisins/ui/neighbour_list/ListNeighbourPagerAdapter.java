@@ -7,6 +7,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
+    public static final String NEIGHBOUR = "NEIGHBOUR";
+    public static final String FAVORI = "FAVORI";
+
     public ListNeighbourPagerAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -20,12 +23,10 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
 
         if (position == 0) {
-            return NeighbourFragment.newInstance();
+            return NeighbourFragment.newInstance(NEIGHBOUR);
         } else {
-//            return FavoriFragment.newInstance();
-            return NeighbourFragment.newInstance();
+            return NeighbourFragment.newInstance(FAVORI);
         }
-//        return NeighbourFragment.newInstance();
     }
 
     /**

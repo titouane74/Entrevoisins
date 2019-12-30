@@ -66,11 +66,12 @@ public class NeighbourActivity extends AppCompatActivity {
 
     private void getIncomingIntent() {
 
-        if (getIntent().hasExtra("name") && getIntent().hasExtra("avatarUrl") && getIntent().hasExtra("favori")) {
+        if (getIntent().hasExtra("name") && getIntent().hasExtra("avatarUrl") && getIntent().hasExtra("favori") && getIntent().hasExtra("id")) {
 
             String name = getIntent().getStringExtra("name");
             String avatarUrl = getIntent().getStringExtra("avatarUrl");
             boolean isFavori = getIntent().getBooleanExtra("favori",false);
+            int id = getIntent().getIntExtra("id",0);
 
             setInfoNeighbour(name, avatarUrl,isFavori);
         }
