@@ -3,10 +3,12 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
@@ -30,6 +32,8 @@ public class NeighbourActivity extends AppCompatActivity {
     TextView mCardNameNeighbour;
     @BindView(R.id.btnfloat_favoris)
     FloatingActionButton mBtnFloatFavoris;
+    @BindView(R.id.toolbar_detail)
+    Toolbar mToolbarDetail;
 
     private static final String TAG = "NeighbourActivity";
     private static final String BTN_NOFAVORI = "NOFAVORI";
@@ -41,7 +45,17 @@ public class NeighbourActivity extends AppCompatActivity {
         setContentView(R.layout.activity_neighbour);
         ButterKnife.bind(this);
 
+        setSupportActionBar(mToolbarDetail);
+
+        if (getSupportActionBar()!= null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setTitle("");
+        }
+
         getIncomingIntent();
+
+
 
         mImgBtnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +77,15 @@ public class NeighbourActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem pItem) {
+        if (pItem.getItemId()==android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(pItem);
+    }
+
 
     private void getIncomingIntent() {
 

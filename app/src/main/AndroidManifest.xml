@@ -25,7 +25,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.neighbour_list.NeighbourActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>
