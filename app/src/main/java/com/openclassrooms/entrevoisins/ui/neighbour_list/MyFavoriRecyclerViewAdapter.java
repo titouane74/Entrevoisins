@@ -52,12 +52,12 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
 
-/*        holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
+        holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
             }
-        });*/
+        });
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,10 +84,8 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
         public ImageView mNeighbourAvatar;
         @BindView(R.id.item_list_name_fav)
         public TextView mNeighbourName;
-/*
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
-*/
 
         public ViewHolder(View view) {
             super(view);
