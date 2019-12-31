@@ -1,6 +1,7 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -22,8 +23,8 @@ import butterknife.ButterKnife;
 public class NeighbourActivity extends AppCompatActivity {
 
     // UI Components
-    @BindView(R.id.nameNeighbour_tv)
-    TextView mNameNeigbourTv;
+//    @BindView(R.id.nameNeighbour_tv)
+//    TextView mNameNeigbourTv;
     @BindView(R.id.img_Neighbour)
     ImageView mImgNeighbour;
     @BindView(R.id.cardNameNeighbour)
@@ -91,7 +92,11 @@ public class NeighbourActivity extends AppCompatActivity {
 
     private void setInfoNeighbour(String name, String avatarUrl,boolean isFavori) {
 
-        mNameNeigbourTv.setText(name);
+        CollapsingToolbarLayout lCollapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
+        lCollapsingToolbarLayout.setTitle(name);
+
+//        mNameNeigbourTv.setText(name);
+
         mCardNameNeighbour.setText(name);
 
         Glide.with(this)
