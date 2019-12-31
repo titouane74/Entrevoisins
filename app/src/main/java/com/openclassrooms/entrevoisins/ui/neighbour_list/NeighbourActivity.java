@@ -24,8 +24,6 @@ public class NeighbourActivity extends AppCompatActivity {
     // UI Components
     @BindView(R.id.nameNeighbour_tv)
     TextView mNameNeigbourTv;
-    @BindView(R.id.imgbtn_return)
-    ImageButton mImgBtnReturn;
     @BindView(R.id.img_Neighbour)
     ImageView mImgNeighbour;
     @BindView(R.id.cardNameNeighbour)
@@ -54,15 +52,6 @@ public class NeighbourActivity extends AppCompatActivity {
         }
 
         getIncomingIntent();
-
-
-
-        mImgBtnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         mBtnFloatFavoris.setOnClickListener(new View.OnClickListener() {
             @Override
