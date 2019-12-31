@@ -6,7 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
@@ -23,8 +23,6 @@ import butterknife.ButterKnife;
 public class NeighbourActivity extends AppCompatActivity {
 
     // UI Components
-//    @BindView(R.id.nameNeighbour_tv)
-//    TextView mNameNeigbourTv;
     @BindView(R.id.img_Neighbour)
     ImageView mImgNeighbour;
     @BindView(R.id.cardNameNeighbour)
@@ -33,6 +31,8 @@ public class NeighbourActivity extends AppCompatActivity {
     FloatingActionButton mBtnFloatFavoris;
     @BindView(R.id.toolbar_detail)
     Toolbar mToolbarDetail;
+    @BindView(R.id.collapsingToolbarLayout)
+    CollapsingToolbarLayout lCollapsingToolbarLayout ;
 
     private static final String TAG = "NeighbourActivity";
     private static final String BTN_NOFAVORI = "NOFAVORI";
@@ -92,11 +92,7 @@ public class NeighbourActivity extends AppCompatActivity {
 
     private void setInfoNeighbour(String name, String avatarUrl,boolean isFavori) {
 
-        CollapsingToolbarLayout lCollapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
         lCollapsingToolbarLayout.setTitle(name);
-
-//        mNameNeigbourTv.setText(name);
-
         mCardNameNeighbour.setText(name);
 
         Glide.with(this)
