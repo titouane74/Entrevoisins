@@ -20,7 +20,7 @@ public interface NeighbourApiService {
      * Get all my Neighbours from Dummy initialisation
      * @return {@link List}
      */
-    List<Neighbour> getNeighboursFavoriInit();
+    List<Neighbour> getNeighboursFavori();
 
     /**
      * Get all my Neighbours from uploaded list

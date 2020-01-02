@@ -28,23 +28,32 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     }
 
 
+    /**
+     * Génère la liste des favoris à partir de la liste chargée dans le Dummy
+     * @return : List<Neighbour> :retourne la liste des voisins qui sont parmis les favoris
+     */
     @Override
-    public List<Neighbour> getNeighboursFavoriInit() {
-        //TODO - Filtre des favoris
-        List<Neighbour> lFavori = new ArrayList<>();
-
-        for (int i = 0; i < neighbours.size(); i++) {
-            if (neighbours.get(i).isFavori()){
-                lFavori.add(neighbours.get(i));
-            }
-        }
-
-        return lFavori;
+    public List<Neighbour> getNeighboursFavori() {
+        return triFavori(neighbours);
     }
 
+    /**
+     * Génère la liste des favoris à partir de la liste passée en paramètre
+     * @param pNeighbourList : List<Neighbour> : liste des voisins
+     * @return : List<Neighbour> :retourne la liste des voisins qui sont parmis les favoris
+     */
     @Override
     public List<Neighbour> getNeighboursFavori(List<Neighbour> pNeighbourList) {
-        //TODO - Filtre des favoris
+
+        return triFavori(pNeighbourList);
+    }
+
+    /**
+     * Tri la liste passé en paramètre
+     * @param pNeighbourList : List<Neighbour> : Liste de voisins à trier
+     * @return : List<Neighbour> :retourne la liste triée
+     */
+    private List<Neighbour> triFavori(List<Neighbour> pNeighbourList) {
         List<Neighbour> lFavori = new ArrayList<>();
 
         for (int i = 0; i < pNeighbourList.size(); i++) {
@@ -52,7 +61,6 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
                 lFavori.add(pNeighbourList.get(i));
             }
         }
-
         return lFavori;
     }
 

@@ -82,6 +82,7 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
         return mNeighboursFavori.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.item_list_avatar_fav)
         public ImageView mNeighbourAvatar;
