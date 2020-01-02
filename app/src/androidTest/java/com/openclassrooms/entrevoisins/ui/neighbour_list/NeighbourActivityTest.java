@@ -34,7 +34,7 @@ public class NeighbourActivityTest {
     @Test
     public void testLaunch() {
 
-        assertNotNull(mActivity.findViewById(R.id.nameNeighbour_tv));
+        assertNotNull(mActivity.findViewById(R.id.cardNameNeighbour));
     }
 
     @After

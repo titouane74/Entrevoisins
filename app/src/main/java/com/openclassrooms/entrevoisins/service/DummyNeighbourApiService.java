@@ -29,7 +29,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
 
     @Override
-    public List<Neighbour> getNeighboursFavori() {
+    public List<Neighbour> getNeighboursFavoriInit() {
         //TODO - Filtre des favoris
         List<Neighbour> lFavori = new ArrayList<>();
 
@@ -42,6 +42,19 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         return lFavori;
     }
 
+    @Override
+    public List<Neighbour> getNeighboursFavori(List<Neighbour> pNeighbourList) {
+        //TODO - Filtre des favoris
+        List<Neighbour> lFavori = new ArrayList<>();
+
+        for (int i = 0; i < pNeighbourList.size(); i++) {
+            if (pNeighbourList.get(i).isFavori()){
+                lFavori.add(pNeighbourList.get(i));
+            }
+        }
+
+        return lFavori;
+    }
 
     /**
      * {@inheritDoc}

@@ -3,6 +3,7 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,14 +24,16 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourActivity.PARENT_FAVORI;
+
 public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRecyclerViewAdapter.ViewHolder> {
 
     private final String TAG = "MyFavoriRVAdap";
-    private final List<Neighbour> mNeighbours;
+    public static  List<Neighbour> mNeighboursFavori;
     private Context mContext;
 
     public MyFavoriRecyclerViewAdapter(List<Neighbour> items) {
-        mNeighbours = items;
+        mNeighboursFavori = items;
     }
 
     @Override
@@ -42,32 +45,32 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        Neighbour neighbour = mNeighbours.get(position);
-        holder.mNeighbourName.setText(neighbour.getName());
+        Neighbour mNeighbour = mNeighboursFavori.get(position);
+        holder.mNeighbourName.setText(mNeighbour.getName());
 
         mContext = holder.mNeighbourName.getContext();
 
         Glide.with(holder.mNeighbourAvatar.getContext())
-                .load(neighbour.getAvatarUrl())
+                .load(mNeighbour.getAvatarUrl())
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
 
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
+                EventBus.getDefault().post(new DeleteNeighbourEvent(mNeighbour));
             }
         });
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent lIntentNeighbourActvitity = new Intent(mContext, NeighbourActivity.class);
-                lIntentNeighbourActvitity.putExtra("name", neighbour.getName());
-                lIntentNeighbourActvitity.putExtra("avatarUrl", neighbour.getAvatarUrl());
-                lIntentNeighbourActvitity.putExtra("favori", neighbour.isFavori());
-                lIntentNeighbourActvitity.putExtra("id",neighbour.getId());
+                lIntentNeighbourActvitity.putExtra("name", mNeighbour.getName());
+                lIntentNeighbourActvitity.putExtra("avatarUrl", mNeighbour.getAvatarUrl());
+                lIntentNeighbourActvitity.putExtra("favori", mNeighbour.isFavori());
+                lIntentNeighbourActvitity.putExtra("position",position);
+                lIntentNeighbourActvitity.putExtra("parent", PARENT_FAVORI);
                 mContext.startActivity(lIntentNeighbourActvitity);
             }
         });
@@ -76,7 +79,7 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
 
     @Override
     public int getItemCount() {
-        return mNeighbours.size();
+        return mNeighboursFavori.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -1,5 +1,7 @@
 package com.openclassrooms.entrevoisins.model;
 
+import android.util.Log;
+
 import java.util.Objects;
 
 /**
@@ -58,7 +60,9 @@ public class Neighbour {
 
     public boolean isFavori() { return favori;}
 
-    public void setFavori(boolean favori) { favori = favori; }
+    public void setFavori(boolean pFavori) {
+        favori = pFavori;
+    }
 
     @Override
     public boolean equals(Object o) {

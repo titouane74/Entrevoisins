@@ -65,7 +65,7 @@ public class FavoriFragment extends Fragment {
      * Init the List of neighbours Favorites
      */
     private void initListFavori() {
-        mNeighbours = mApiService.getNeighboursFavori();
+        mNeighbours = mApiService.getNeighboursFavoriInit();
         mRecyclerView.setAdapter(new MyFavoriRecyclerViewAdapter(mNeighbours));
     }
     private void initList() {
@@ -73,11 +73,24 @@ public class FavoriFragment extends Fragment {
         mRecyclerView.setAdapter(new MyFavoriRecyclerViewAdapter(mNeighbours));
     }
 
+    public void refreshList () {
+        mNeighbours = mApiService.getNeighboursFavori(MyNeighbourRecyclerViewAdapter.mNeighbours);
+        mRecyclerView.setAdapter(new MyFavoriRecyclerViewAdapter(mNeighbours));
+
+    }
+
 
     @Override
     public void onStart() {
         super.onStart();
         EventBus.getDefault().register(this);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        refreshList();
     }
 
     @Override

@@ -23,9 +23,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourActivity.PARENT_NEIGHBOUR;
+
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Neighbour> mNeighbours;
+    public static  List<Neighbour> mNeighbours;
     private Context mContext;
 
     public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
@@ -66,7 +68,9 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 lIntentNeighbourActvitity.putExtra("name", neighbour.getName());
                 lIntentNeighbourActvitity.putExtra("avatarUrl", neighbour.getAvatarUrl());
                 lIntentNeighbourActvitity.putExtra("favori", neighbour.isFavori());
-                lIntentNeighbourActvitity.putExtra("id",neighbour.getId());
+                lIntentNeighbourActvitity.putExtra("position",position);
+                lIntentNeighbourActvitity.putExtra("parent", PARENT_NEIGHBOUR);
+
                 mContext.startActivity(lIntentNeighbourActvitity);
             }
         });

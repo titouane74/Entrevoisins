@@ -17,11 +17,16 @@ public interface NeighbourApiService {
     List<Neighbour> getNeighbours();
 
     /**
-     * Get all my Neighbours
+     * Get all my Neighbours from Dummy initialisation
      * @return {@link List}
      */
-    List<Neighbour> getNeighboursFavori();
+    List<Neighbour> getNeighboursFavoriInit();
 
+    /**
+     * Get all my Neighbours from uploaded list
+     * @return {@link List}
+     */
+    List<Neighbour> getNeighboursFavori(List<Neighbour> pNeighbourList);
 
     /**
      * Deletes a neighbour

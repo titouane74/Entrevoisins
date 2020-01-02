@@ -40,6 +40,7 @@
                 android:elevation="7dp"/>
 
         </android.support.design.widget.CollapsingToolbarLayout>
+
     </android.support.design.widget.AppBarLayout>
 
 
@@ -52,6 +53,7 @@
         android:theme="?attr/actionBarTheme"
         android:backgroundTint="#00325DDF"
         />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btnfloat_favoris"
         android:layout_width="wrap_content"
@@ -64,7 +66,6 @@
         app:layout_anchorGravity="bottom|right|end"
         android:layout_marginRight="20dp"
         />
-
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
