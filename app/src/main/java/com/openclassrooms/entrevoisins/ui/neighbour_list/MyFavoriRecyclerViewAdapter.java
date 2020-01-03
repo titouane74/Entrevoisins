@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
+import com.openclassrooms.entrevoisins.events.GetNeighbourFavoriEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import org.greenrobot.eventbus.EventBus;
@@ -65,6 +66,9 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+//                EventBus.getDefault().post(new GetNeighbourFavoriEvent(mContext,mNeighbour,position));
+
                 Intent lIntentNeighbourActvitity = new Intent(mContext, NeighbourActivity.class);
                 lIntentNeighbourActvitity.putExtra("name", mNeighbour.getName());
                 lIntentNeighbourActvitity.putExtra("avatarUrl", mNeighbour.getAvatarUrl());

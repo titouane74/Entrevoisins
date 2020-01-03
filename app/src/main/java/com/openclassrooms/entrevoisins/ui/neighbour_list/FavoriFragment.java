@@ -13,8 +13,12 @@ import android.view.ViewGroup;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
+
+import com.openclassrooms.entrevoisins.events.GetNeighbourFavoriEvent;
+import com.openclassrooms.entrevoisins.events.PutFavoriEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
+import com.openclassrooms.entrevoisins.service.FavoriApiService;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -26,6 +30,7 @@ public class FavoriFragment extends Fragment {
 
     private static String TAG = "FAVORIFRAGMENT";
     private NeighbourApiService mApiService;
+    private FavoriApiService mApiServiceFavori;
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
 
@@ -112,4 +117,18 @@ public class FavoriFragment extends Fragment {
     }
 
 
+/*
+    @Subscribe
+    public void onGetNeighbourFavori(GetNeighbourFavoriEvent pEvent) {
+        mApiServiceFavori.getNeighbourFavori(pEvent.mContext, pEvent.neighbour, pEvent.mPosition);
+    }
+
+*/
+/*
+    @Subscribe
+    void onPutFavori(PutFavoriEvent pPutFavoriEvent) {
+        mApiServiceFavori.putFavori(pPutFavoriEvent.neighbour);
+
+    }
+*/
 }
