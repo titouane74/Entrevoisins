@@ -80,13 +80,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         neighbours.remove(neighbour);
     }
 
-    @Override
-    public void putFavori(Neighbour pNeighbour) {
-        Log.d("API", "putFavori: ");
-        pNeighbour.setFavori(!pNeighbour.isFavori());
 
-
-    }
     @Override
     public void getNeighbourFavori(Context pContext, Neighbour pNeighbour, int pPosition) {
 

@@ -120,11 +120,5 @@ public class FavoriFragment extends Fragment {
     }
 
 */
-/*
-    @Subscribe
-    void onPutFavori(PutFavoriEvent pPutFavoriEvent) {
-        mApiService.putFavori(pPutFavoriEvent.neighbour);
 
-    }
-*/
 }

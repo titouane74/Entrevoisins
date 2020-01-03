@@ -74,7 +74,6 @@ public class NeighbourActivity extends AppCompatActivity {
         mBtnFloatFavoris.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                EventBus.getDefault().post(new PutFavoriEvent(mNeighbour));
 
                 afficheBtnFloatFavorisOnClick();
             }
