@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
@@ -60,6 +61,7 @@ public class NeighbourActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neighbour);
         ButterKnife.bind(this);
+        mApiService = DI.getNeighbourApiService();
 
         setSupportActionBar(mToolbarDetail);
 
@@ -150,11 +152,11 @@ public class NeighbourActivity extends AppCompatActivity {
 
         if ( mBtnFloatFavoris.getTag() == BTN_FAVORI) {
             Toast.makeText(this, "Voisin retiré de la liste des favoris", Toast.LENGTH_SHORT).show();
-            mNeighbour.setFavori(false);
+            mApiService.changeStatutFavori(mNeighbour,false);
             changeStatutFavori(false);
         } else {
             Toast.makeText(this, "Voisin ajouté à la liste des favoris", Toast.LENGTH_SHORT).show();
-            mNeighbour.setFavori(true);
+            mApiService.changeStatutFavori(mNeighbour,true);
             changeStatutFavori(true);
         }
     }

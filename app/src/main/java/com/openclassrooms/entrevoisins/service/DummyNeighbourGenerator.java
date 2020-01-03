@@ -34,4 +34,18 @@ public abstract class DummyNeighbourGenerator {
             new Neighbour(8, "Dan", "http://i.pravatar.cc/150?u=a042581f4e29026703b",true),
             new Neighbour(11, "Patrick", "http://i.pravatar.cc/150?u=a042581f4e29026702d",true)
     );
+
+    public static List<Neighbour> DUMMY_NEIGHBOURS_FAVORI_ADD = Arrays.asList(
+            new Neighbour(1, "Caroline", "http://i.pravatar.cc/150?u=a042581f4e29026704d",true),
+            new Neighbour(2, "Jack", "http://i.pravatar.cc/150?u=a042581f4e29026704e",true),
+            new Neighbour(8, "Dan", "http://i.pravatar.cc/150?u=a042581f4e29026703b",true),
+            new Neighbour(9, "Joseph", "http://i.pravatar.cc/150?u=a042581f4e29026704d",true),
+            new Neighbour(11, "Patrick", "http://i.pravatar.cc/150?u=a042581f4e29026702d",true)
+    );
+
+    public static List<Neighbour> DUMMY_NEIGHBOURS_FAVORI_DEL= Arrays.asList(
+            new Neighbour(2, "Jack", "http://i.pravatar.cc/150?u=a042581f4e29026704e",true),
+            new Neighbour(8, "Dan", "http://i.pravatar.cc/150?u=a042581f4e29026703b",true),
+            new Neighbour(9, "Joseph", "http://i.pravatar.cc/150?u=a042581f4e29026704d",true)
+    );
 }

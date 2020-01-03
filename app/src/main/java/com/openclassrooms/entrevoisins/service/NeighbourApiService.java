@@ -30,6 +30,9 @@ public interface NeighbourApiService {
      */
     List<Neighbour> getNeighboursFavori(List<Neighbour> pNeighbourList);
 
+
+    List<Neighbour> triFavori(List<Neighbour> pNeighbourList);
+
     /**
      * Deletes a neighbour
      * @param neighbour
@@ -37,4 +40,6 @@ public interface NeighbourApiService {
     void deleteNeighbour(Neighbour neighbour);
 
     void getNeighbourFavori(Context pContext, Neighbour pNeighbour, int pPosition);
+
+    void changeStatutFavori(Neighbour pNeighbour, boolean isFavori);
 }

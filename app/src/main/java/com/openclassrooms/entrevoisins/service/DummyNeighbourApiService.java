@@ -3,16 +3,13 @@ package com.openclassrooms.entrevoisins.service;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.ui.neighbour_list.MyFavoriRecyclerViewAdapter;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyclerViewAdapter.mNeighbours;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourActivity.PARENT_FAVORI;
 
 /**
@@ -61,7 +58,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
      * @param pNeighbourList : List<Neighbour> : Liste de voisins à trier
      * @return : List<Neighbour> :retourne la liste triée
      */
-    private List<Neighbour> triFavori(List<Neighbour> pNeighbourList) {
+    public List<Neighbour> triFavori(List<Neighbour> pNeighbourList) {
         List<Neighbour> lFavori = new ArrayList<>();
 
         for (int i = 0; i < pNeighbourList.size(); i++) {
@@ -93,4 +90,10 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         pContext.startActivity(lIntentNeighbourActvitity);
 
     }
+
+    @Override
+    public void changeStatutFavori(Neighbour pNeighbour, boolean pValue) {
+        pNeighbour.setFavori(pValue);
+    }
+
 }
