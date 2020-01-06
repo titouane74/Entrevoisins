@@ -28,10 +28,8 @@ public interface NeighbourApiService {
      * Get all my Neighbours from uploaded list
      * @return {@link List}
      */
-    List<Neighbour> getNeighboursFavori(List<Neighbour> pNeighbourList);
+//    List<Neighbour> getNeighboursFavori(List<Neighbour> pNeighbourList);
 
-
-    List<Neighbour> triFavori(List<Neighbour> pNeighbourList);
 
     /**
      * Deletes a neighbour
@@ -39,7 +37,7 @@ public interface NeighbourApiService {
      */
     void deleteNeighbour(Neighbour neighbour);
 
-    void getNeighbourFavori(Context pContext, Neighbour pNeighbour, int pPosition);
-
     void changeStatutFavori(Neighbour pNeighbour, boolean isFavori);
+
+
 }

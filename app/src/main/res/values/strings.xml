@@ -12,7 +12,7 @@ Aenean egestas maximus lacus, sit amet efficitur nulla aliquet eget. Quisque com
 Curabitur iaculis molestie mi at tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc at quam posuere, aliquam urna nec, mollis elit. Praesent convallis est tincidunt purus placerat accumsan. Nunc porta volutpat lacinia. Maecenas orci risus, fringilla in nisl non, vestibulum lobortis leo. Sed a dignissim metus. Donec condimentum metus non lectus congue dictum. Mauris tincidunt metus vel lorem dictum, ut blandit ante pulvinar.</string>
     <string name="btn_nofavori">NOFAVORI</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_ajout_favori">Voisin ajouté à la liste des favoris</string>
+    <string name="txt_retrait_favori">Voisin retiré de la liste des favoris</string>
 
 </resources>

@@ -151,11 +151,11 @@ public class NeighbourActivity extends AppCompatActivity {
     private void  afficheBtnFloatFavorisOnClick() {
 
         if ( mBtnFloatFavoris.getTag() == BTN_FAVORI) {
-            Toast.makeText(this, "Voisin retiré de la liste des favoris", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.txt_retrait_favori), Toast.LENGTH_SHORT).show();
             mApiService.changeStatutFavori(mNeighbour,false);
             changeStatutFavori(false);
         } else {
-            Toast.makeText(this, "Voisin ajouté à la liste des favoris", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.txt_ajout_favori), Toast.LENGTH_SHORT).show();
             mApiService.changeStatutFavori(mNeighbour,true);
             changeStatutFavori(true);
         }
@@ -174,28 +174,6 @@ public class NeighbourActivity extends AppCompatActivity {
             mBtnFloatFavoris.setTag(BTN_NOFAVORI);
         }
     }
-/*
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        EventBus.getDefault().register(this);
-
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        EventBus.getDefault().unregister(this);
-    }
-
-
-*/
-/*
-    @Subscribe
-    public void onGetNeighbourFavori(GetNeighbourFavoriEvent pEvent) {
-        mApiService.getNeighbourFavori(pEvent.mContext, pEvent.neighbour, pEvent.mPosition);
-    }
-*/
 
 }

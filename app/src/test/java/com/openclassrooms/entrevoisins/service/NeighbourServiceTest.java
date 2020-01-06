@@ -43,18 +43,15 @@ public class NeighbourServiceTest {
         Neighbour neighbourToDelete = service.getNeighbours().get(0);
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
+
+        //TODO vérifié que le voisin supprimer de la liste des voisins n'est plus non plus dans la liste des favoris
     }
 
     @Test
-    public void getNeghbourFavoriWithSuccess() {
+    public void getNeighbourFavoriWithSuccess() {
         List<Neighbour> neighbours = service.getNeighboursFavori();
         List<Neighbour> expectedNeighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI;
         assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
-
-        List<Neighbour> lNeighbours = service.triFavori(service.getNeighbours());
-        List<Neighbour> lExpectedNeighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI;
-        assertThat(lNeighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(lExpectedNeighbours.toArray()));
-
     }
 
     @Test
@@ -76,11 +73,11 @@ public class NeighbourServiceTest {
         Neighbour lNeighbourAdd = neighboursAdd.get(9);
         lNeighbourAdd.setFavori(true);
 
-        int countAdd = service.triFavori(neighboursAdd).size();
-
+        int countAdd = service.getNeighboursFavori().size();
         int expectedCountAdd = DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_ADD.size();
-
         assertEquals(expectedCountAdd,countAdd);
+
+        //TODO vérifié que le voisin est présant dans la liste des Favoris
     }
 
     @Test
@@ -89,11 +86,14 @@ public class NeighbourServiceTest {
         Neighbour lNeighbourDel = neighboursDel.get(0);
         lNeighbourDel.setFavori(false);
 
-        int countDel = service.triFavori(neighboursDel).size();
-
+        int countDel = service.getNeighboursFavori().size();
         int expectedCountDel = DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_DEL.size();
-
         assertEquals(expectedCountDel,countDel);
+
+        //TODO vérifié que le voisin n'est plus dans la liste des voisins
+
+        //TODO vérifié que le voisin est toujours dans la liste des voisins
+
     }
 
 }

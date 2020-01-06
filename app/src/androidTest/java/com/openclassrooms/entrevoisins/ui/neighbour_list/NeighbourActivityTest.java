@@ -1,6 +1,8 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
+import android.util.Log;
 
 import com.openclassrooms.entrevoisins.R;
 
@@ -9,6 +11,8 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.*;
 
@@ -24,12 +28,16 @@ public class NeighbourActivityTest {
     @Before
     public void setUp() throws Exception {
         mActivity = mActivityTestRule.getActivity();
+        assertThat(mActivity,notNullValue());
     }
 
     @Test
     public void testNameIsNotNull() {
-        assertThat(mActivity.findViewById(R.id.cardNameNeighbour),notNullValue());
+//        assertThat(mActivity.findViewById(R.id.cardNameNeighbour),notNullValue());
+        onView(ViewMatchers.withId(R.id.cardNameNeighbour)).check(matches(notNullValue()));
     }
+
+
 
     @After
     public void tearDown() throws Exception {

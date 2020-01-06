@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
-import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
+import com.openclassrooms.entrevoisins.events.DeleteFavoriEvent;
+
 
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
@@ -74,7 +75,8 @@ public class FavoriFragment extends Fragment {
      * en appelant une méthode dans l'API Service
      */
     public void refreshList () {
-        mNeighbours = mApiService.getNeighboursFavori(MyNeighbourRecyclerViewAdapter.mNeighbours);
+
+        mNeighbours = mApiService.getNeighboursFavori();
         mRecyclerView.setAdapter(new MyFavoriRecyclerViewAdapter(mNeighbours));
 
     }
@@ -107,18 +109,9 @@ public class FavoriFragment extends Fragment {
      * @param event
      */
     @Subscribe
-    public void onDeleteNeighbour(DeleteNeighbourEvent event) {
-        mApiService.deleteNeighbour(event.neighbour);
+    public void onDeleteFavori(DeleteFavoriEvent event) {
+        mApiService.changeStatutFavori(event.neighbour,false);
         initListFavori();
     }
-
-
-/*
-    @Subscribe
-    public void onGetNeighbourFavori(GetNeighbourFavoriEvent pEvent) {
-        mApiService.getNeighbourFavori(pEvent.mContext, pEvent.neighbour, pEvent.mPosition);
-    }
-
-*/
 
 }
