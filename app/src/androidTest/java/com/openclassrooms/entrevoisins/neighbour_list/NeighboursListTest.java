@@ -22,8 +22,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChild
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.core.IsNull.notNullValue;
 
-
-
 /**
  * Test class for list of neighbours
  */
@@ -68,4 +66,6 @@ public class NeighboursListTest {
         // Then : the number of element is 11
         onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
     }
+
+
 }

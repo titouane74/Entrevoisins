@@ -23,4 +23,5 @@ public class DeleteViewAction implements ViewAction {
         // Maybe check for null
         button.performClick();
     }
+
 }

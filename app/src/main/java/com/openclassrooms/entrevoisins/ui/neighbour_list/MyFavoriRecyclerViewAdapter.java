@@ -89,7 +89,7 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
         public ImageView mNeighbourAvatar;
         @BindView(R.id.item_list_name_fav)
         public TextView mNeighbourName;
-        @BindView(R.id.item_list_delete_button)
+        @BindView(R.id.item_list_delete_button_fav)
         public ImageButton mDeleteButton;
 
         public ViewHolder(View view) {
