@@ -1,6 +1,5 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 
 import com.openclassrooms.entrevoisins.R;
@@ -16,7 +15,6 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
-import static android.support.test.espresso.matcher.ViewMatchers.isDescendantOfA;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -29,14 +27,15 @@ import static org.junit.Assert.*;
  */
 public class NeighbourActivityTest {
 
+    private ListNeighbourActivity mActivity = null;
+    private NeighbourApiService mService = null ;
+
     //Voisin qui doit s'afficher à l'écran
     private static int idNeighbourToTest = 0;
 
-    private NeighbourActivity mActivity = null;
-    private NeighbourApiService mService = null ;
 
     @Rule
-    public ActivityTestRule<NeighbourActivity> mActivityTestRule = new ActivityTestRule<NeighbourActivity>(NeighbourActivity.class);
+    public ActivityTestRule<ListNeighbourActivity> mActivityTestRule = new ActivityTestRule<ListNeighbourActivity>(ListNeighbourActivity.class);
 
 
     @Before
@@ -48,40 +47,26 @@ public class NeighbourActivityTest {
         assertThat(mService,notNullValue());
     }
 
-/*
     @Test
-    public void testNameIsNotNull() {
-        onView(withId(R.id.cardNameNeighbour)).check(matches(notNullValue()));
-    }
-*/
-/*
-
-    @Test
-    public void clickListNeighbour_opensNeighbourDetail() {
-        //locate and click on the login button
-//        onView(withId(R.id.list_neighbours)).perform(click());
-
-        //check if the sign up screen is displayed by asserting that the first name edittext is displayed
-//        onView(withId(R.id.cardNameNeighbour)).check(matches(allOf(isDescendantOfA(withId(R.id.layout_activity_neighbour)), isDisplayed())));
-    }
-*/
-
-
-    @Test
-    public void neighbourDetailsActivity_isDisplayed() {
+    public void neighbourActivity_isDisplayed() {
+        //Click sur un item de la liste des voisins
         onView(allOf(withId(R.id.list_neighbours), isDisplayed()))
                 .perform(actionOnItemAtPosition(idNeighbourToTest, click()));
 
+        //Ouverture du détail du voisin
         onView(withId(R.id.layout_activity_neighbour)).check(matches(isDisplayed()));
     }
 
     @Test
-    public void neighbourDetailsActivity_nameIsDisplayed() {
+    public void neighbourActivity_nameIsDisplayed() {
+        //Click sur un item de la liste des voisins
         onView(allOf(withId(R.id.list_neighbours), isDisplayed()))
                 .perform(actionOnItemAtPosition(idNeighbourToTest, click()));
 
+        //Ouverture du détail du voisin
         onView(withId(R.id.layout_activity_neighbour)).check(matches(isDisplayed()));
-//        onView(withId(R.id.collapsingToolbarLayout)).check(matches(withText(mService.getNeighbours().get(idNeighbourToTest).getName())));
+
+        //Compare que le texte affiché dans la carte est celui de la liste voisin sélectionné
         onView(withId(R.id.cardNameNeighbour)).check(matches(withText(mService.getNeighbours().get(idNeighbourToTest).getName())));
     }
 
