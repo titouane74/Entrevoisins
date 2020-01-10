@@ -36,24 +36,15 @@
                 />
 
             <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_detail"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:elevation="7dp"/>
+                android:backgroundTint="#00325DDF" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:backgroundTint="#00325DDF"
-        />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btnfloat_favoris"
@@ -85,7 +76,6 @@
 
 
     </android.support.v4.widget.NestedScrollView>
-
 
 
 </android.support.design.widget.CoordinatorLayout>
