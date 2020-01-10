@@ -70,6 +70,7 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
                 lIntentNeighbourActvitity.putExtra("name", mNeighbour.getName());
                 lIntentNeighbourActvitity.putExtra("avatarUrl", mNeighbour.getAvatarUrl());
                 lIntentNeighbourActvitity.putExtra("favori", mNeighbour.isFavori());
+                lIntentNeighbourActvitity.putExtra("aboutme",mNeighbour.getAboutMe());
                 lIntentNeighbourActvitity.putExtra("position",position);
                 lIntentNeighbourActvitity.putExtra("parent", PARENT_FAVORI);
                 mContext.startActivity(lIntentNeighbourActvitity);

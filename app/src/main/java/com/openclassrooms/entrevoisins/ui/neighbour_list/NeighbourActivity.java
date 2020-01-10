@@ -41,6 +41,8 @@ public class NeighbourActivity extends AppCompatActivity {
     Toolbar mToolbarDetail;
     @BindView(R.id.collapsingToolbarLayout)
     CollapsingToolbarLayout lCollapsingToolbarLayout ;
+    @BindView(R.id.cardTextAboutMe)
+    TextView lCardTextAboutMe;
 
     private NeighbourApiService mApiService;
 
@@ -104,6 +106,7 @@ public class NeighbourActivity extends AppCompatActivity {
             String name = getIntent().getStringExtra("name");
             String avatarUrl = getIntent().getStringExtra("avatarUrl");
             Boolean isFavori = getIntent().getBooleanExtra("favori",false);
+            String aboutMe = getIntent().getStringExtra("aboutme");
             int lPosition = getIntent().getIntExtra("position",0);
 
 
@@ -117,7 +120,7 @@ public class NeighbourActivity extends AppCompatActivity {
             } else {
                 mNeighbour = mNeighbours.get(lPosition);
             }
-            setInfoNeighbour(name, avatarUrl, isFavori);
+            setInfoNeighbour(name, avatarUrl, isFavori,aboutMe);
 
         }
     }
@@ -128,7 +131,7 @@ public class NeighbourActivity extends AppCompatActivity {
      * @param pAvatarUrl : string : image du voisin
      * @param pIsFavori : boolean : indicateur de favori ou non
      */
-    private void setInfoNeighbour(String pName, String pAvatarUrl, Boolean pIsFavori) {
+    private void setInfoNeighbour(String pName, String pAvatarUrl, Boolean pIsFavori, String pAboutMe) {
 
         lCollapsingToolbarLayout.setTitle(pName);
         mCardNameNeighbour.setText(pName);
@@ -143,6 +146,8 @@ public class NeighbourActivity extends AppCompatActivity {
         } else {
             changeStatutFavori(false);
         }
+
+        lCardTextAboutMe.setText(pAboutMe);
     }
 
     /**
