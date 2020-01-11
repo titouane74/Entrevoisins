@@ -23,6 +23,9 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity.mDecorView;
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity.mUiOptions;
+
 
 public class FavoriFragment extends Fragment {
 
@@ -86,7 +89,6 @@ public class FavoriFragment extends Fragment {
     public void onStart() {
         super.onStart();
         EventBus.getDefault().register(this);
-
     }
 
     /**

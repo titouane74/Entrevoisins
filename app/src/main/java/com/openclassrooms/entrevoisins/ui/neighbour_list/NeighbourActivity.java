@@ -22,6 +22,8 @@ import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity.mDecorView;
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity.mUiOptions;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.MyFavoriRecyclerViewAdapter.mNeighboursFavori;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyclerViewAdapter.mNeighbours;
 
@@ -53,7 +55,6 @@ public class NeighbourActivity extends AppCompatActivity {
     public static final String PARENT_NEIGHBOUR = "PARENT_NEIGHBOUR";
 
     private Neighbour mNeighbour;
-
     /**
      * Sur ouverture de l'activité
      * @param savedInstanceState
@@ -64,6 +65,14 @@ public class NeighbourActivity extends AppCompatActivity {
         setContentView(R.layout.activity_neighbour);
         ButterKnife.bind(this);
         mApiService = DI.getNeighbourApiService();
+
+        // Hide both the navigation bar and the status bar.
+        // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
+        // a general rule, you should design your app to hide the status bar whenever you
+        // hide the navigation bar.
+        mDecorView = getWindow().getDecorView();
+        mUiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        mDecorView.setSystemUiVisibility(mUiOptions);
 
         setSupportActionBar(mToolbarDetail);
 
@@ -164,6 +173,7 @@ public class NeighbourActivity extends AppCompatActivity {
             mApiService.changeStatutFavori(mNeighbour,true);
             changeStatutFavori(true);
         }
+
     }
 
     /**
@@ -180,5 +190,10 @@ public class NeighbourActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mDecorView = getWindow().getDecorView();
+        mDecorView.setSystemUiVisibility(mUiOptions);
+    }
 }

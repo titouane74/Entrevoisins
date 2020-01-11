@@ -23,7 +23,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="@color/colorPrimary"
             app:title="@string/title_collpsing_tollbar"
-            app:expandedTitleMarginStart="40dp"
+            app:expandedTitleMarginStart="@dimen/activity_horizontal_margin"
             >
 
             <ImageView
@@ -56,14 +56,15 @@
         android:tag="@string/btn_nofavori"
         app:layout_anchor="@id/appbarlayout"
         app:layout_anchorGravity="bottom|right|end"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="@dimen/fab_margin"
         />
 
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/colorDiviseur">
 
         <LinearLayout
             android:layout_width="match_parent"
