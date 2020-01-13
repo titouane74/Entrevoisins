@@ -24,8 +24,6 @@ import java.util.List;
 
 public class NeighbourFragment extends Fragment {
 
-    private static String TAG = "NEIGHFRAGMENT";
-
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;

@@ -52,7 +52,6 @@ public class NeighbourActivity extends AppCompatActivity {
 
     private NeighbourApiService mApiService;
 
-    private static final String TAG = "NeighbourActivity";
     private static final String BTN_NOFAVORI = "NOFAVORI";
     private static final String BTN_FAVORI = "FAVORI";
     public static final String PARENT_FAVORI = "PARENT_FAVORI";
@@ -125,7 +124,7 @@ public class NeighbourActivity extends AppCompatActivity {
             // et permet l'actualisation de la liste des voisins favoris au moment de du refreshList
             if (getIntent().getStringExtra("parent").equals(PARENT_FAVORI)) {
                 Neighbour lNeighbour = mNeighboursFavori.get(lPosition);
-                if (mNeighbours.contains( mNeighboursFavori.get(lPosition))) {
+                if (mNeighbours.contains(mNeighboursFavori.get(lPosition))) {
                     mNeighbour = mNeighbours.get(mNeighbours.indexOf(lNeighbour));
                 }
             } else {

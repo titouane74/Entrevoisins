@@ -28,7 +28,6 @@ import static com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourActivit
 
 public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRecyclerViewAdapter.ViewHolder> {
 
-    private final String TAG = "MyFavoriRVAdap";
     public static  List<Neighbour> mNeighboursFavori;
     private Context mContext;
 
@@ -84,9 +83,7 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
     }
 
     @Override
-    public int getItemCount() {
-        return mNeighboursFavori.size();
-    }
+    public int getItemCount() { return mNeighboursFavori.size(); }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
