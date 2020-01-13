@@ -22,8 +22,6 @@ import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity.mDecorView;
-import static com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity.mUiOptions;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.MyFavoriRecyclerViewAdapter.mNeighboursFavori;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyclerViewAdapter.mNeighbours;
 
@@ -37,6 +35,12 @@ public class NeighbourActivity extends AppCompatActivity {
     ImageView mImgNeighbour;
     @BindView(R.id.cardNameNeighbour)
     TextView mCardNameNeighbour;
+    @BindView(R.id.cardAddressNeighbour)
+    TextView mCardAddressNeighbour;
+    @BindView(R.id.cardPhoneNeighbour)
+    TextView mCardPhoneNeighbour;
+    @BindView(R.id.cardSiteNeighbour)
+    TextView mCardSiteNeighbour;
     @BindView(R.id.btnfloat_favoris)
     FloatingActionButton mBtnFloatFavoris;
     @BindView(R.id.toolbar_detail)
@@ -65,14 +69,6 @@ public class NeighbourActivity extends AppCompatActivity {
         setContentView(R.layout.activity_neighbour);
         ButterKnife.bind(this);
         mApiService = DI.getNeighbourApiService();
-
-        // Hide both the navigation bar and the status bar.
-        // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
-        // a general rule, you should design your app to hide the status bar whenever you
-        // hide the navigation bar.
-        mDecorView = getWindow().getDecorView();
-        mUiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-        mDecorView.setSystemUiVisibility(mUiOptions);
 
         setSupportActionBar(mToolbarDetail);
 
@@ -110,10 +106,16 @@ public class NeighbourActivity extends AppCompatActivity {
      * Vérifie que tous les éléments passés en argument sont bien alimentés
      */
     private void getIncomingIntent() {
-        if (getIntent().hasExtra("name") && getIntent().hasExtra("avatarUrl") && getIntent().hasExtra("favori") && getIntent().hasExtra("position")) {
+        if (getIntent().hasExtra("name") && getIntent().hasExtra("avatarUrl")
+            && getIntent().hasExtra("address") && getIntent().hasExtra("phone") && getIntent().hasExtra("website")
+            && getIntent().hasExtra("favori") && getIntent().hasExtra("position"))
+        {
 
             String name = getIntent().getStringExtra("name");
             String avatarUrl = getIntent().getStringExtra("avatarUrl");
+            String address = getIntent().getStringExtra("address");
+            String phone = getIntent().getStringExtra("phone");
+            String webSite = getIntent().getStringExtra("website");
             Boolean isFavori = getIntent().getBooleanExtra("favori",false);
             String aboutMe = getIntent().getStringExtra("aboutme");
             int lPosition = getIntent().getIntExtra("position",0);
@@ -129,7 +131,7 @@ public class NeighbourActivity extends AppCompatActivity {
             } else {
                 mNeighbour = mNeighbours.get(lPosition);
             }
-            setInfoNeighbour(name, avatarUrl, isFavori,aboutMe);
+            setInfoNeighbour(name, avatarUrl, address, phone, webSite,isFavori,aboutMe);
 
         }
     }
@@ -140,7 +142,7 @@ public class NeighbourActivity extends AppCompatActivity {
      * @param pAvatarUrl : string : image du voisin
      * @param pIsFavori : boolean : indicateur de favori ou non
      */
-    private void setInfoNeighbour(String pName, String pAvatarUrl, Boolean pIsFavori, String pAboutMe) {
+    private void setInfoNeighbour(String pName, String pAvatarUrl, String pAddress, String pPhone, String pWebSite ,Boolean pIsFavori, String pAboutMe) {
 
         lCollapsingToolbarLayout.setTitle(pName);
         mCardNameNeighbour.setText(pName);
@@ -149,6 +151,10 @@ public class NeighbourActivity extends AppCompatActivity {
                 .asBitmap()
                 .load(pAvatarUrl)
                 .into(mImgNeighbour);
+
+        mCardAddressNeighbour.setText(pAddress);
+        mCardPhoneNeighbour.setText(pPhone);
+        mCardSiteNeighbour.setText(pWebSite);
 
         if (pIsFavori) {
             changeStatutFavori(true);
@@ -193,7 +199,5 @@ public class NeighbourActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mDecorView = getWindow().getDecorView();
-        mDecorView.setSystemUiVisibility(mUiOptions);
     }
 }

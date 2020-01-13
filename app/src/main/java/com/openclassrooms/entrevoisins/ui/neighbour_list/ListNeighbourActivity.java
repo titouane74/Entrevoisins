@@ -5,7 +5,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 
 import com.openclassrooms.entrevoisins.R;
@@ -25,25 +24,11 @@ public class ListNeighbourActivity extends AppCompatActivity {
 
     ListNeighbourPagerAdapter mPagerAdapter;
 
-    public static View mDecorView;
-    public static int mUiOptions;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_neighbour);
         ButterKnife.bind(this);
-
-        // Hide both the navigation bar and the status bar.
-        // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
-        // a general rule, you should design your app to hide the status bar whenever you
-        // hide the navigation bar.
-        mDecorView = getWindow().getDecorView();
-        mUiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-        mDecorView.setSystemUiVisibility(mUiOptions);
-
-
 
         setSupportActionBar(mToolbar);
         mPagerAdapter = new ListNeighbourPagerAdapter(getSupportFragmentManager());
@@ -56,8 +41,6 @@ public class ListNeighbourActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mDecorView = getWindow().getDecorView();
-        mDecorView.setSystemUiVisibility(mUiOptions);
     }
 
 }

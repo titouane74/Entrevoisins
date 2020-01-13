@@ -24,8 +24,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity.mDecorView;
-import static com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity.mUiOptions;
 import static com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourActivity.PARENT_FAVORI;
 
 public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRecyclerViewAdapter.ViewHolder> {
@@ -72,6 +70,9 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
                 Intent lIntentNeighbourActvitity = new Intent(mContext, NeighbourActivity.class);
                 lIntentNeighbourActvitity.putExtra("name", mNeighbour.getName());
                 lIntentNeighbourActvitity.putExtra("avatarUrl", mNeighbour.getAvatarUrl());
+                lIntentNeighbourActvitity.putExtra("address", mNeighbour.getAddress());
+                lIntentNeighbourActvitity.putExtra("phone", mNeighbour.getPhone());
+                lIntentNeighbourActvitity.putExtra("website", mNeighbour.getWebSite());
                 lIntentNeighbourActvitity.putExtra("favori", mNeighbour.isFavori());
                 lIntentNeighbourActvitity.putExtra("aboutme",mNeighbour.getAboutMe());
                 lIntentNeighbourActvitity.putExtra("position",position);

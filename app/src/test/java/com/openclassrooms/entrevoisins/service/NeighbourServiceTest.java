@@ -53,16 +53,25 @@ public class NeighbourServiceTest {
     @Test
     public void getNeighbourFavoriWithSuccess() {
 
-        List<Neighbour> neighboursFavori = service.getNeighboursFavori();
+        Neighbour lNeighbourAdd = service.getNeighbours().get(2);
+        lNeighbourAdd.setFavori(true);
+
+        List<Neighbour> neighboursFavoriAfterAdd = service.getNeighboursFavori();
+
+//        List<Neighbour> expectedNeighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI;
+        assertTrue(neighboursFavoriAfterAdd.contains(lNeighbourAdd));
+
+
+/*
         System.out.println("NeighboursFavori " + neighboursFavori.size());
         for ( int i=0 ; i < service.getNeighboursFavori().size();i++) {
             System.out.println("NeighboursFavori " + service.getNeighboursFavori().get(i).getName() + " ID " + service.getNeighboursFavori().get(i).getId());
         }
-        List<Neighbour> expectedNeighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI;
         for ( int i=0 ; i < expectedNeighbours.size();i++) {
             System.out.println("NeighboursExpectedFavori " + expectedNeighbours.get(i).getName() + " ID " + expectedNeighbours.get(i).getId());
         }
-        assertThat(neighboursFavori, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
+
+*/
     }
 
     @Test
@@ -93,23 +102,30 @@ public class NeighbourServiceTest {
     @Test
     public void delNeighbourFavoriWithSuccess() {
 
-        System.out.println("DummyFavoriDel " + DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_DEL.size());
-        System.out.println("NeighboursFavori " + service.getNeighboursFavori().size());
+        int sizeNeighbourFavori = service.getNeighboursFavori().size();
+
+        Neighbour lNeighbourDel = service.getNeighbours().get(3);
+        lNeighbourDel.setFavori(true);
+        //TODO service.getNeighboursFavori().size() = service.getNeighboursFavori().size() + 1
+        assertEquals(sizeNeighbourFavori +1,service.getNeighboursFavori().size());
+        //assertEquals(DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_ADD.size(),service.getNeighboursFavori().size());
+
 
         for ( int i=0 ; i < service.getNeighboursFavori().size();i++) {
             System.out.println("NeighboursFavori " + service.getNeighboursFavori().get(i).getName() + " ID " + service.getNeighboursFavori().get(i).getId());
         }
 
-        Neighbour lNeighbourDel = service.getNeighbours().get(0);
+//        Neighbour lNeighbourDel = service.getNeighbours().get(9);
         lNeighbourDel.setFavori(false);
+        //TODO service.getNeighboursFavori().size() = service.getNeighboursFavori().size() - 1
 
-        System.out.println("DummyFavoriDel " + DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_DEL.size());
-        System.out.println("NeighboursFavori " + service.getNeighboursFavori().size());
         for ( int i=0 ; i < service.getNeighboursFavori().size();i++) {
             System.out.println("NeighboursFavori " + service.getNeighboursFavori().get(i).getName() + " ID " + service.getNeighboursFavori().get(i).getId());
         }
 
-        assertEquals(DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_DEL.size(),service.getNeighboursFavori().size());
+        assertEquals(sizeNeighbourFavori ,service.getNeighboursFavori().size());
+
+        //assertEquals(DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_DEL.size(),service.getNeighboursFavori().size());
 
         //TODO vérifié que le voisin n'est plus dans la liste des favoris
         List<Neighbour> expectedNeighboursDel = DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_DEL;

@@ -150,7 +150,7 @@
                 android:layout_marginLeft="@dimen/marging_text_horizontal"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/text_title_size"
-                android:hint="@string/tv_about_me"
+                android:text="@string/tv_about_me"
                 />
 
             <View

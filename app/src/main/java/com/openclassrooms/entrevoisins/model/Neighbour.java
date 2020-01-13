@@ -1,7 +1,5 @@
 package com.openclassrooms.entrevoisins.model;
 
-import android.util.Log;
-
 import java.util.Objects;
 
 /**
@@ -18,6 +16,17 @@ public class Neighbour {
     /** Avatar */
     private String avatarUrl;
 
+    /** Address */
+    private String address;
+
+    /** Phone */
+    private String phone;
+
+
+    /** Web site  */
+    private String webSite;
+
+
     /** Favori */
     private boolean favori;
 
@@ -30,10 +39,13 @@ public class Neighbour {
      * @param name
      * @param avatarUrl
      */
-    public Neighbour(Integer id, String name, String avatarUrl, boolean favori, String aboutMe) {
+    public Neighbour(Integer id, String name, String avatarUrl, String address, String phone, String webSite, boolean favori, String aboutMe) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
+        this.address = address;
+        this.phone = phone;
+        this.webSite = webSite;
         this.favori = favori;
         this.aboutMe = aboutMe;
     }
@@ -61,6 +73,18 @@ public class Neighbour {
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
+
+    public String getAddress() { return address; }
+
+    public void setAddress(String pAddress) { address = pAddress; }
+
+    public String getPhone() { return phone; }
+
+    public void setPhone(String pPhone) { phone = pPhone; }
+
+    public void setWebSite(String pWebSite) { webSite = pWebSite; }
+
+    public String getWebSite() { return webSite; }
 
     public boolean isFavori() { return favori;}
 
