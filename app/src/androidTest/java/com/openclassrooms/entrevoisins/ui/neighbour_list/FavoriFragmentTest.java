@@ -1,6 +1,6 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-import android.support.test.espresso.ViewInteraction;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +24,7 @@ import java.util.List;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -80,15 +81,31 @@ public class FavoriFragmentTest {
         mFavoriList = mService.getNeighboursFavori();
     }
 
+
+    /**
+     * Vérification que le recyclerview n'est pas vide et affiche au moins un item
+     */
+    @Test
+    public void favoriList_shouldNotBeEmpty() {
+        // First scroll to the position that needs to be matched and click on it.
+        onView(ViewMatchers.withId(R.id.list_favori))
+                .check(matches(hasMinimumChildCount(1)));
+    }
+
+    /**
+     * Vérification que la liste des favoris ne contient que des voisins marqués en favoris
+     */
     @Test
     public void favoriList_shouldContainOnlyFavoriNeighbours() {
         //On se positionne sur l'onglet des favoris
         onView(withContentDescription("Favorites"))
                 .perform(click());
 
+        //On vérifie que la liste s'affiche avec 4 items
         onView(allOf(withId(R.id.list_favori), isDisplayed()))
                 .check(withItemCount(4));
 
+        //On vérifie pour chaque item qu'il est bien dans la liste des favoris en comparant le nom du voisin
         onView(allOf(withId(R.id.item_list_name_fav),
                 childAtPosition(childAtPosition(withId(R.id.list_favori), 0), 1),
                 isDisplayed()))
