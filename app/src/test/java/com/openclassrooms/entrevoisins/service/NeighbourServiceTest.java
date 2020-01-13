@@ -75,14 +75,13 @@ public class NeighbourServiceTest {
     @Test
     public void changeStatutFavori() {
         // Passage au statut de favori
-        Neighbour lNeighbourTrue = service.getNeighbours().get(5);
-        service.changeStatutFavori(lNeighbourTrue,true);
-        assertTrue(lNeighbourTrue.isFavori());
+        Neighbour lNeighbour = service.getNeighbours().get(5);
+        service.changeStatutFavori(lNeighbour,true);
+        assertTrue(lNeighbour.isFavori());
 
         // Passage au statut de non favori
-        Neighbour lNeighbourFalse = service.getNeighbours().get(0);
-        service.changeStatutFavori(lNeighbourFalse,false);
-        assertFalse(lNeighbourTrue.isFavori());
+        service.changeStatutFavori(lNeighbour,false);
+        assertFalse(lNeighbour.isFavori());
     }
 
     /**

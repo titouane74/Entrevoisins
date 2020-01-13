@@ -38,24 +38,27 @@ Exécution :
 
 Les tests :
 ===========
-Exécution des tests unitaires :
+Exécution et résultat des tests unitaires :
 -------------------------------
 
     Dans le repository : Entrevoisins/app/src/test/java/com/openclassrooms/entrevoisins/service
 
 	- ouvrir le fichier : NeighbourServiceTest.java du repository
 	- lancer l'exécution sur la class NeighbourServiceTest
+	- résultat d'exécution dans le reposotiry Entrevoisins/TestResult/ :  Passed - Test Results - NeighbourServiceTest.html
 
-Exécution des tests instrumentalisés :
+Exécutions et résultats des tests instrumentalisés :
 --------------------------------------
 
 	Dans le repository : Entrevoisins/app/src/androidTest/java/com/openclassrooms/entrevoisins/ui/neihgbour_list/
 
 	- ouvrir le fichier : FavoriFragmentTest.java
 	- lancer l'exécution sur la class FavoriFragmentTest
+	- résultat d'exécution dans le reposotiry Entrevoisins/TestResult/ :  Passed - Test Results - FavoriFragmentTest.html
 
 	- ouvrir le fichier : NeighbourActivityTest.java
 	- lancer l'exécution sur la class NeighbourActivityTest
+	- résultat d'exécution dans le reposotiry Entrevoisins/TestResult/ :  Passed - Test Results - NeighbourActivityTest.html
 
 La License :
 ============
