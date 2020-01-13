@@ -61,49 +61,4 @@ public abstract class DummyNeighbourGenerator {
         return new ArrayList<>(DUMMY_NEIGHBOURS);
     }
 
-
-    public static List<Neighbour> DUMMY_NEIGHBOURS_FAVORI = Arrays.asList(
-            new Neighbour(1, "Caroline", "http://i.pravatar.cc/150?u=a042581f4e29026704d",
-                    "Charenton-Le-Pont","+33 6 68 95 72 34","www.facebook.fr/Caroline",
-                    true, TEXTE_COURT),
-            new Neighbour(2, "Jack", "http://i.pravatar.cc/150?u=a042581f4e29026704e",
-                    "Ivry-sur-Seine","+33 6 95 95 58 30","www.facebook.fr/Jack",
-                    true,TEXTE_LONG),
-            new Neighbour(8, "Dan", "http://i.pravatar.cc/150?u=a042581f4e29026703b",
-                    "Vincennes","+33 6 05 69 34 75","www.facebook.fr/Dan",
-                    true,TEXTE_COURT),
-            new Neighbour(11, "Patrick", "http://i.pravatar.cc/150?u=a042581f4e29026702d",
-                    "Alfortville","+33 6 08 05 49 99","www.facebook.fr/Patrick",
-                    true,TEXTE_LONG)
-    );
-
-    public static List<Neighbour> DUMMY_NEIGHBOURS_FAVORI_ADD = Arrays.asList(
-            new Neighbour(1, "Caroline", "http://i.pravatar.cc/150?u=a042581f4e29026704d",
-                    "Charenton-Le-Pont","+33 6 68 95 72 34","www.facebook.fr/Caroline",
-                    true, TEXTE_COURT),
-            new Neighbour(2, "Jack", "http://i.pravatar.cc/150?u=a042581f4e29026704e",
-                    "Ivry-sur-Seine","+33 6 95 95 58 30","www.facebook.fr/Jack",
-                    true,TEXTE_LONG),
-            new Neighbour(8, "Dan", "http://i.pravatar.cc/150?u=a042581f4e29026703b",
-                    "Vincennes","+33 6 05 69 34 75","www.facebook.fr/Dan",
-                    true,TEXTE_COURT),
-            new Neighbour(10, "Emma", "http://i.pravatar.cc/150?u=a042581f4e29026706d",
-                    "Charenton-Le-Pont","+33 6 69 53 04 77","www.facebook.fr/Emma",
-                    false,TEXTE_COURT),
-            new Neighbour(11, "Patrick", "http://i.pravatar.cc/150?u=a042581f4e29026702d",
-                    "Alfortville","+33 6 08 05 49 99","www.facebook.fr/Patrick",
-                    true,TEXTE_LONG)
-    );
-
-    public static List<Neighbour> DUMMY_NEIGHBOURS_FAVORI_DEL= Arrays.asList(
-            new Neighbour(2, "Jack", "http://i.pravatar.cc/150?u=a042581f4e29026704e",
-                    "Ivry-sur-Seine","+33 6 95 95 58 30","www.facebook.fr/Jack",
-                    true,TEXTE_LONG),
-            new Neighbour(8, "Dan", "http://i.pravatar.cc/150?u=a042581f4e29026703b",
-                    "Vincennes","+33 6 05 69 34 75","www.facebook.fr/Dan",
-                    true,TEXTE_COURT),
-            new Neighbour(9, "Joseph", "http://i.pravatar.cc/150?u=a042581f4e29026704d",
-                    "Saint-Mandé","+33 6 05 63 04 00 ","www.facebook.fr/Joseph",
-                    false,TEXTE_LONG)
-    );
 }

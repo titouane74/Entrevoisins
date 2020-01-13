@@ -26,11 +26,13 @@ public class NeighbourServiceTest {
 
     @Before
     public void setup() {
-//        System.out.println("TEST : Initialize");
         service = DI.getNewInstanceApiService();
     }
 
 
+    /**
+     * Récupération de la liste de tous les voisins
+     */
     @Test
     public void getNeighboursWithSuccess() {
         List<Neighbour> neighbours = service.getNeighbours();
@@ -38,103 +40,95 @@ public class NeighbourServiceTest {
         assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
     }
 
+    /**
+     * Suppression d'un voisin : dans la liste des voisins et des favoris
+     */
     @Test
     public void deleteNeighbourWithSuccess() {
         Neighbour neighbourToDelete = service.getNeighbours().get(0);
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
 
-        //TODO vérifié que le voisin supprimer de la liste des voisins n'est plus non plus dans la liste des favoris
-        List<Neighbour> expectedNeighboursDel = DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_DEL;
+        //Ajout d'un test complémentaire :
+        //Vérification que le voisin supprimé de la liste des voisins n'est plus non plus dans la liste des favoris
+        List<Neighbour> expectedNeighboursDel = service.getNeighboursFavori();
         assertFalse(expectedNeighboursDel.contains(neighbourToDelete));
 
     }
 
+    /**
+     * Récupération des voisins appartenant à la liste des favoris
+     */
     @Test
     public void getNeighbourFavoriWithSuccess() {
 
+        //Si la liste des favoris est vide, il faut d'abord ajouté un voisin
         Neighbour lNeighbourAdd = service.getNeighbours().get(2);
         lNeighbourAdd.setFavori(true);
 
-        List<Neighbour> neighboursFavoriAfterAdd = service.getNeighboursFavori();
-
-//        List<Neighbour> expectedNeighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI;
-        assertTrue(neighboursFavoriAfterAdd.contains(lNeighbourAdd));
-
-
-/*
-        System.out.println("NeighboursFavori " + neighboursFavori.size());
-        for ( int i=0 ; i < service.getNeighboursFavori().size();i++) {
-            System.out.println("NeighboursFavori " + service.getNeighboursFavori().get(i).getName() + " ID " + service.getNeighboursFavori().get(i).getId());
-        }
-        for ( int i=0 ; i < expectedNeighbours.size();i++) {
-            System.out.println("NeighboursExpectedFavori " + expectedNeighbours.get(i).getName() + " ID " + expectedNeighbours.get(i).getId());
-        }
-
-*/
+        assertTrue(service.getNeighboursFavori().contains(lNeighbourAdd));
     }
 
+    /**
+     * Validation du changement de statut : de non favori à favori et de favori à non favori
+     */
     @Test
     public void changeStatutFavori() {
+        // Passage au statut de favori
         Neighbour lNeighbourTrue = service.getNeighbours().get(5);
         service.changeStatutFavori(lNeighbourTrue,true);
-        assertEquals(true, lNeighbourTrue.isFavori());
+        assertTrue(lNeighbourTrue.isFavori());
 
+        // Passage au statut de non favori
         Neighbour lNeighbourFalse = service.getNeighbours().get(0);
         service.changeStatutFavori(lNeighbourFalse,false);
-        assertEquals(false, lNeighbourFalse.isFavori());
-
+        assertFalse(lNeighbourTrue.isFavori());
     }
 
+    /**
+     * Ajout d'un voisin dans la liste des favoris
+     */
     @Test
     public void addNeighbourFavoriWithSuccess() {
-        // Add
+        int sizeNeighbourFavori = service.getNeighboursFavori().size();
+
+        // Passage d'un voisin au statut favori
         Neighbour lNeighbourAdd = service.getNeighbours().get(9);
         lNeighbourAdd.setFavori(true);
 
-        assertEquals(DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_ADD.size(),service.getNeighboursFavori().size());
+        // Vérification qu'il y a un favori en plus
+        assertEquals(sizeNeighbourFavori + 1,service.getNeighboursFavori().size());
 
-        //TODO vérifié que le voisin est présant dans la liste des Favoris
-        List<Neighbour> expectedNeighboursAdd = DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_ADD;
-        assertTrue(expectedNeighboursAdd.contains(lNeighbourAdd));
+        // Vérification que le voisin est présant dans la liste des Favoris
+        assertTrue(service.getNeighboursFavori().contains(lNeighbourAdd));
     }
 
+    /**
+     * Suppression d'un voisi de la liste des favoris
+     */
     @Test
     public void delNeighbourFavoriWithSuccess() {
 
         int sizeNeighbourFavori = service.getNeighboursFavori().size();
 
-        Neighbour lNeighbourDel = service.getNeighbours().get(3);
-        lNeighbourDel.setFavori(true);
-        //TODO service.getNeighboursFavori().size() = service.getNeighboursFavori().size() + 1
+        //Ajout d'un voisin dans la liste des favoris en cas de liste vide
+        Neighbour lNeighbour = service.getNeighbours().get(3);
+        lNeighbour.setFavori(true);
+
+        //Vérification qu'on a un voisin en plus
         assertEquals(sizeNeighbourFavori +1,service.getNeighboursFavori().size());
-        //assertEquals(DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_ADD.size(),service.getNeighboursFavori().size());
 
+        //Suppression de ce même voisin de la liste des favoris
+        lNeighbour.setFavori(false);
 
-        for ( int i=0 ; i < service.getNeighboursFavori().size();i++) {
-            System.out.println("NeighboursFavori " + service.getNeighboursFavori().get(i).getName() + " ID " + service.getNeighboursFavori().get(i).getId());
-        }
-
-//        Neighbour lNeighbourDel = service.getNeighbours().get(9);
-        lNeighbourDel.setFavori(false);
-        //TODO service.getNeighboursFavori().size() = service.getNeighboursFavori().size() - 1
-
-        for ( int i=0 ; i < service.getNeighboursFavori().size();i++) {
-            System.out.println("NeighboursFavori " + service.getNeighboursFavori().get(i).getName() + " ID " + service.getNeighboursFavori().get(i).getId());
-        }
-
+        //Vérification qu'on revenu au nombre initial de voisin
         assertEquals(sizeNeighbourFavori ,service.getNeighboursFavori().size());
 
-        //assertEquals(DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_DEL.size(),service.getNeighboursFavori().size());
+        //Vérification que le voisin n'est plus dans la liste des favoris
+        assertFalse(service.getNeighboursFavori().contains(lNeighbour));
 
-        //TODO vérifié que le voisin n'est plus dans la liste des favoris
-        List<Neighbour> expectedNeighboursDel = DummyNeighbourGenerator.DUMMY_NEIGHBOURS_FAVORI_DEL;
-        assertFalse(expectedNeighboursDel.contains(lNeighbourDel));
-
-
-        //TODO vérifié que le voisin est toujours dans la liste des voisins
-        List<Neighbour> expectedNeighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
-        assertTrue(expectedNeighbours.contains(lNeighbourDel));
+        //Vérification que le voisin est toujours dans la liste des voisins
+        assertTrue(service.getNeighbours().contains(lNeighbour));
 
 
     }
