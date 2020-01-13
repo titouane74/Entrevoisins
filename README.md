@@ -23,7 +23,7 @@ Le programme :
 ==============
 Adresse GitHub du programme :
 -----------------------------
-    https://github.com/titouane74/MagicGithub.git
+    https://github.com/titouane74/Entrevoisins.git
 
 Installation :
 ------------
