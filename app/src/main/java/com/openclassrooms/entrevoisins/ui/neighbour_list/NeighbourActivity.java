@@ -102,7 +102,7 @@ public class NeighbourActivity extends AppCompatActivity {
     }
 
     /**
-     * Vérifie que tous les éléments passés en argument sont bien alimentés
+     * Vérifie que tous les éléments passés en argument de l'intent sont bien alimentés
      */
     private void getIncomingIntent() {
         if (getIntent().hasExtra("position") && getIntent().hasExtra("parent"))
