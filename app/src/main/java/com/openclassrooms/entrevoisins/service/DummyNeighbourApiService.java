@@ -46,6 +46,12 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         neighbours.remove(neighbour);
     }
 
+
+    /**
+     * Change le statut du voisin en favori ou non en fonction de la valeur passée en paramètre
+     * @param pNeighbour : objet : voisin concerné par le changement de statut
+     * @param pValue : boolean : nouvelle valeur que doit prendre le voisin
+     */
     @Override
     public void changeStatutFavori(Neighbour pNeighbour, boolean pValue) {
         try {

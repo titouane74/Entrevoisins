@@ -105,23 +105,10 @@ public class NeighbourActivity extends AppCompatActivity {
      * Vérifie que tous les éléments passés en argument sont bien alimentés
      */
     private void getIncomingIntent() {
-        if (getIntent().hasExtra("name") && getIntent().hasExtra("avatarUrl")
-            && getIntent().hasExtra("address") && getIntent().hasExtra("phone") && getIntent().hasExtra("website")
-            && getIntent().hasExtra("favori") && getIntent().hasExtra("position"))
+        if (getIntent().hasExtra("position") && getIntent().hasExtra("parent"))
         {
-
-            String name = getIntent().getStringExtra("name");
-            String avatarUrl = getIntent().getStringExtra("avatarUrl");
-            String address = getIntent().getStringExtra("address");
-            String phone = getIntent().getStringExtra("phone");
-            String webSite = getIntent().getStringExtra("website");
-            Boolean isFavori = getIntent().getBooleanExtra("favori",false);
-            String aboutMe = getIntent().getStringExtra("aboutme");
             int lPosition = getIntent().getIntExtra("position",0);
 
-
-            //Liste mise à jour sera toujours la liste du recycler Neighbours car contient tous les voisons
-            // et permet l'actualisation de la liste des voisins favoris au moment de du refreshList
             if (getIntent().getStringExtra("parent").equals(PARENT_FAVORI)) {
                 Neighbour lNeighbour = mNeighboursFavori.get(lPosition);
                 if (mNeighbours.contains(mNeighboursFavori.get(lPosition))) {
@@ -130,39 +117,38 @@ public class NeighbourActivity extends AppCompatActivity {
             } else {
                 mNeighbour = mNeighbours.get(lPosition);
             }
-            setInfoNeighbour(name, avatarUrl, address, phone, webSite,isFavori,aboutMe);
-
+            setInfoNeighbour(mNeighbour);
         }
     }
 
     /**
      * Affichage des informations du voisin avec les valeurs reçues
-     * @param pName : string : nom du voisin
-     * @param pAvatarUrl : string : image du voisin
-     * @param pIsFavori : boolean : indicateur de favori ou non
+     * @param pNeighbour : object : voisin à afficher
      */
-    private void setInfoNeighbour(String pName, String pAvatarUrl, String pAddress, String pPhone, String pWebSite ,Boolean pIsFavori, String pAboutMe) {
+    private void setInfoNeighbour(Neighbour pNeighbour) {
 
-        lCollapsingToolbarLayout.setTitle(pName);
-        mCardNameNeighbour.setText(pName);
+        lCollapsingToolbarLayout.setTitle(pNeighbour.getName());
+        mCardNameNeighbour.setText(pNeighbour.getName());
 
         Glide.with(this)
                 .asBitmap()
-                .load(pAvatarUrl)
+                .load(pNeighbour.getAvatarUrl())
                 .into(mImgNeighbour);
 
-        mCardAddressNeighbour.setText(pAddress);
-        mCardPhoneNeighbour.setText(pPhone);
-        mCardSiteNeighbour.setText(pWebSite);
+        mCardAddressNeighbour.setText(pNeighbour.getAddress());
+        mCardPhoneNeighbour.setText(pNeighbour.getPhone());
+        mCardSiteNeighbour.setText(pNeighbour.getWebSite());
 
-        if (pIsFavori) {
+        if (pNeighbour.isFavori()) {
             changeStatutFavori(true);
         } else {
             changeStatutFavori(false);
         }
 
-        lCardTextAboutMe.setText(pAboutMe);
+        lCardTextAboutMe.setText(pNeighbour.getAboutMe());
     }
+
+
 
     /**
      * Gestion de l'affichage sur le click du bouton et de la mise à jour de la liste des voisins
@@ -193,10 +179,5 @@ public class NeighbourActivity extends AppCompatActivity {
             mBtnFloatFavoris.setImageResource(R.drawable.ic_star_border_yellow_24dp);
             mBtnFloatFavoris.setTag(BTN_NOFAVORI);
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 }

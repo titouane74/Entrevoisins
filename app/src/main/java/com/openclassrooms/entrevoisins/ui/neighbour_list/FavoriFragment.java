@@ -25,7 +25,6 @@ import java.util.List;
 
 public class FavoriFragment extends Fragment {
 
-    private static String TAG = "FAVORIFRAGMENT";
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
@@ -69,16 +68,16 @@ public class FavoriFragment extends Fragment {
         mRecyclerView.setAdapter(new MyFavoriRecyclerViewAdapter(mNeighbours));
     }
 
-    /**
+/*    *//**
      * Rafraîchit la liste des favoris à partir de la liste globale des voisins en cours
      * en appelant une méthode dans l'API Service
-     */
+     *//*
     public void refreshList () {
 
         mNeighbours = mApiService.getNeighboursFavori();
         mRecyclerView.setAdapter(new MyFavoriRecyclerViewAdapter(mNeighbours));
 
-    }
+    }*/
 
 
     @Override
@@ -93,7 +92,8 @@ public class FavoriFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        refreshList();
+//        refreshList();
+        initListFavori();
     }
 
     @Override

@@ -67,13 +67,6 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
             public void onClick(View v) {
 
                 Intent lIntentNeighbourActvitity = new Intent(mContext, NeighbourActivity.class);
-                lIntentNeighbourActvitity.putExtra("name", mNeighbour.getName());
-                lIntentNeighbourActvitity.putExtra("avatarUrl", mNeighbour.getAvatarUrl());
-                lIntentNeighbourActvitity.putExtra("address", mNeighbour.getAddress());
-                lIntentNeighbourActvitity.putExtra("phone", mNeighbour.getPhone());
-                lIntentNeighbourActvitity.putExtra("website", mNeighbour.getWebSite());
-                lIntentNeighbourActvitity.putExtra("favori", mNeighbour.isFavori());
-                lIntentNeighbourActvitity.putExtra("aboutme",mNeighbour.getAboutMe());
                 lIntentNeighbourActvitity.putExtra("position",position);
                 lIntentNeighbourActvitity.putExtra("parent", PARENT_FAVORI);
                 mContext.startActivity(lIntentNeighbourActvitity);

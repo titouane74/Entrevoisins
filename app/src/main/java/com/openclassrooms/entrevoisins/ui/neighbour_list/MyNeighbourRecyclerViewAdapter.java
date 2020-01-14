@@ -69,13 +69,6 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
 
 
                 Intent lIntentNeighbourActvitity = new Intent(mContext, NeighbourActivity.class);
-                lIntentNeighbourActvitity.putExtra("name", neighbour.getName());
-                lIntentNeighbourActvitity.putExtra("avatarUrl", neighbour.getAvatarUrl());
-                lIntentNeighbourActvitity.putExtra("address", neighbour.getAddress());
-                lIntentNeighbourActvitity.putExtra("phone", neighbour.getPhone());
-                lIntentNeighbourActvitity.putExtra("website", neighbour.getWebSite());
-                lIntentNeighbourActvitity.putExtra("favori", neighbour.isFavori());
-                lIntentNeighbourActvitity.putExtra("aboutme",neighbour.getAboutMe());
                 lIntentNeighbourActvitity.putExtra("position",position);
                 lIntentNeighbourActvitity.putExtra("parent", PARENT_NEIGHBOUR);
 
