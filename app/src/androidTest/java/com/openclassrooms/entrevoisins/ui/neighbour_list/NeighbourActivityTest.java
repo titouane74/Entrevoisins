@@ -47,6 +47,9 @@ public class NeighbourActivityTest {
         assertThat(mService,notNullValue());
     }
 
+    /**
+     * Vérification que le layout du détail du voisin est affiché
+     */
     @Test
     public void neighbourActivity_isDisplayed() {
         //Click sur un item de la liste des voisins

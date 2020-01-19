@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,12 +81,15 @@ public class NeighbourFragment extends Fragment {
         EventBus.getDefault().unregister(this);
     }
 
+
+
     /**
      * Fired if the user clicks on a delete button
      * @param event
      */
     @Subscribe
     public void onDeleteNeighbour(DeleteNeighbourEvent event) {
+        Log.d("NeighbourFragment", "onDeleteNeighbour: PASSAGE");
         mApiService.deleteNeighbour(event.neighbour);
         initList();
     }

@@ -24,12 +24,6 @@ public interface NeighbourApiService {
      */
     List<Neighbour> getNeighboursFavori();
 
-    /**
-     * Get all my Neighbours from uploaded list
-     * @return {@link List}
-     */
-//    List<Neighbour> getNeighboursFavori(List<Neighbour> pNeighbourList);
-
 
     /**
      * Deletes a neighbour

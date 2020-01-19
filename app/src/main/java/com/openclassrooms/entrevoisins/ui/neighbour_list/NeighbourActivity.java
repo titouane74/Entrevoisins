@@ -110,13 +110,11 @@ public class NeighbourActivity extends AppCompatActivity {
             int lPosition = getIntent().getIntExtra("position",0);
 
             if (getIntent().getStringExtra("parent").equals(PARENT_FAVORI)) {
-                Neighbour lNeighbour = mNeighboursFavori.get(lPosition);
-                if (mNeighbours.contains(mNeighboursFavori.get(lPosition))) {
-                    mNeighbour = mNeighbours.get(mNeighbours.indexOf(lNeighbour));
-                }
+                mNeighbour = mNeighboursFavori.get(lPosition);
             } else {
                 mNeighbour = mNeighbours.get(lPosition);
             }
+
             setInfoNeighbour(mNeighbour);
         }
     }
