@@ -61,18 +61,16 @@ public class MyFavoriRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoriRe
                 EventBus.getDefault().post(new DeleteFavoriEvent(mNeighbour));
             }
         });
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent lIntentNeighbourActvitity = new Intent(mContext, NeighbourActivity.class);
+                Intent lIntentNeighbourActvitity =
+                        new Intent(mContext, NeighbourActivity.class);
                 lIntentNeighbourActvitity.putExtra("position",position);
                 lIntentNeighbourActvitity.putExtra("parent", PARENT_FAVORI);
                 mContext.startActivity(lIntentNeighbourActvitity);
             }
         });
-
     }
 
     @Override

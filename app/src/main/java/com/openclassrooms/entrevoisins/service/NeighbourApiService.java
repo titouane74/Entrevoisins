@@ -31,6 +31,11 @@ public interface NeighbourApiService {
      */
     void deleteNeighbour(Neighbour neighbour);
 
+    /**
+     * Changement de valeur du statut de favori ou non
+     * @param pNeighbour : objet : voisin sélectionné
+     * @param isFavori : indicateur de valeur du statut de favori
+     */
     void changeStatutFavori(Neighbour pNeighbour, boolean isFavori);
 
 

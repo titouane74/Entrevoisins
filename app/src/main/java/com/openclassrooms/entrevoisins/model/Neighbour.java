@@ -22,7 +22,6 @@ public class Neighbour {
     /** Phone */
     private String phone;
 
-
     /** Web site  */
     private String webSite;
 
@@ -34,12 +33,18 @@ public class Neighbour {
     private String aboutMe;
 
     /**
-     * Constructor
-     * @param id
-     * @param name
-     * @param avatarUrl
+     * Constructeur de l'objet
+     * @param id : integer : identifiant du voisin
+     * @param name : string : nom
+     * @param avatarUrl : string : adresse url de l'image de l'avatar
+     * @param address : string : adresse
+     * @param phone : string : téléphone
+     * @param webSite : string : adresse du site web
+     * @param favori : boolean : indicateur d'appartenance aux favoris
+     * @param aboutMe : string : descriptif du voisin
      */
-    public Neighbour(Integer id, String name, String avatarUrl, String address, String phone, String webSite, boolean favori, String aboutMe) {
+    public Neighbour(Integer id, String name, String avatarUrl, String address,
+             String phone, String webSite, boolean favori, String aboutMe) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;

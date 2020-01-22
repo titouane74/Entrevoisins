@@ -54,7 +54,8 @@ public class FavoriFragment extends Fragment {
         Context context = view.getContext();
         mRecyclerView = (RecyclerView) view;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
+                DividerItemDecoration.VERTICAL));
 
         initListFavori();
         return view;
@@ -68,18 +69,6 @@ public class FavoriFragment extends Fragment {
         mRecyclerView.setAdapter(new MyFavoriRecyclerViewAdapter(mNeighbours));
     }
 
-/*    *//**
-     * Rafraîchit la liste des favoris à partir de la liste globale des voisins en cours
-     * en appelant une méthode dans l'API Service
-     *//*
-    public void refreshList () {
-
-        mNeighbours = mApiService.getNeighboursFavori();
-        mRecyclerView.setAdapter(new MyFavoriRecyclerViewAdapter(mNeighbours));
-
-    }*/
-
-
     @Override
     public void onStart() {
         super.onStart();
@@ -92,7 +81,6 @@ public class FavoriFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-//        refreshList();
         initListFavori();
     }
 

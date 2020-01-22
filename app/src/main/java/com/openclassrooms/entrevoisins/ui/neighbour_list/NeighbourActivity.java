@@ -31,24 +31,16 @@ import static com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyc
 public class NeighbourActivity extends AppCompatActivity {
 
     // UI Components
-    @BindView(R.id.img_Neighbour)
-    ImageView mImgNeighbour;
-    @BindView(R.id.cardNameNeighbour)
-    TextView mCardNameNeighbour;
-    @BindView(R.id.cardAddressNeighbour)
-    TextView mCardAddressNeighbour;
-    @BindView(R.id.cardPhoneNeighbour)
-    TextView mCardPhoneNeighbour;
-    @BindView(R.id.cardSiteNeighbour)
-    TextView mCardSiteNeighbour;
-    @BindView(R.id.btnfloat_favoris)
-    FloatingActionButton mBtnFloatFavoris;
-    @BindView(R.id.toolbar_detail)
-    Toolbar mToolbarDetail;
+    @BindView(R.id.img_Neighbour) ImageView mImgNeighbour;
+    @BindView(R.id.cardNameNeighbour) TextView mCardNameNeighbour;
+    @BindView(R.id.cardAddressNeighbour) TextView mCardAddressNeighbour;
+    @BindView(R.id.cardPhoneNeighbour) TextView mCardPhoneNeighbour;
+    @BindView(R.id.cardSiteNeighbour) TextView mCardSiteNeighbour;
+    @BindView(R.id.btnfloat_favoris) FloatingActionButton mBtnFloatFavoris;
+    @BindView(R.id.toolbar_detail) Toolbar mToolbarDetail;
     @BindView(R.id.collapsingToolbarLayout)
     CollapsingToolbarLayout lCollapsingToolbarLayout ;
-    @BindView(R.id.cardTextAboutMe)
-    TextView lCardTextAboutMe;
+    @BindView(R.id.cardTextAboutMe) TextView lCardTextAboutMe;
 
     private NeighbourApiService mApiService;
 
@@ -76,15 +68,10 @@ public class NeighbourActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setTitle("");
         }
-
         getIncomingIntent();
-
         mBtnFloatFavoris.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-                afficheBtnFloatFavorisOnClick();
-            }
+            public void onClick(View v) { afficheBtnFloatFavorisOnClick(); }
         });
     }
 
@@ -114,7 +101,6 @@ public class NeighbourActivity extends AppCompatActivity {
             } else {
                 mNeighbour = mNeighbours.get(lPosition);
             }
-
             setInfoNeighbour(mNeighbour);
         }
     }
@@ -149,25 +135,28 @@ public class NeighbourActivity extends AppCompatActivity {
 
 
     /**
-     * Gestion de l'affichage sur le click du bouton et de la mise à jour de la liste des voisins
+     * Gestion de l'affichage sur le click du bouton et de la mise à jour
+     * de la liste des voisins
      */
     private void  afficheBtnFloatFavorisOnClick() {
 
         if ( mBtnFloatFavoris.getTag() == BTN_FAVORI) {
-            Toast.makeText(this, getString(R.string.txt_retrait_favori), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.txt_retrait_favori),
+                    Toast.LENGTH_SHORT).show();
             mApiService.changeStatutFavori(mNeighbour,false);
             changeStatutFavori(false);
         } else {
-            Toast.makeText(this, getString(R.string.txt_ajout_favori), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.txt_ajout_favori),
+                    Toast.LENGTH_SHORT).show();
             mApiService.changeStatutFavori(mNeighbour,true);
             changeStatutFavori(true);
         }
-
     }
 
     /**
      * Change le statut du bouton Favori en fonction de la valeur reçue
-     * @param pIsFavori : boolean : true si le bouton doit affiché Favori, false si le bouton ne doit pas afficher Favori
+     * @param pIsFavori : boolean : true si le bouton doit affiché Favori,
+     *                 false si le bouton ne doit pas afficher Favori
      */
     private void changeStatutFavori(boolean pIsFavori) {
         if (pIsFavori) {

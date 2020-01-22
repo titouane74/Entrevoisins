@@ -70,7 +70,8 @@ public class NeighbourActivityTest {
         onView(withId(R.id.layout_activity_neighbour)).check(matches(isDisplayed()));
 
         //Compare que le texte affiché dans la carte est celui de la liste voisin sélectionné
-        onView(withId(R.id.cardNameNeighbour)).check(matches(withText(mService.getNeighbours().get(idNeighbourToTest).getName())));
+        onView(withId(R.id.cardNameNeighbour))
+                .check(matches(withText(mService.getNeighbours().get(idNeighbourToTest).getName())));
     }
 
 
@@ -79,7 +80,6 @@ public class NeighbourActivityTest {
         mActivity = null;
         mService = null;
     }
-
 
 
 }

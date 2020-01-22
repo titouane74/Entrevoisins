@@ -47,7 +47,8 @@ public class FavoriFragmentTest {
     private List<Neighbour> mFavoriList;
 
     @Rule
-    public ActivityTestRule<ListNeighbourActivity> mActivityTestRule = new ActivityTestRule<ListNeighbourActivity>(ListNeighbourActivity.class);
+    public ActivityTestRule<ListNeighbourActivity> mActivityTestRule =
+            new ActivityTestRule<ListNeighbourActivity>(ListNeighbourActivity.class);
 
     private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
@@ -106,11 +107,14 @@ public class FavoriFragmentTest {
         onView(allOf(withId(R.id.list_favori), isDisplayed()))
                 .check(withItemCount(4));
 
-        //On vérifie pour chaque item qu'il est bien dans la liste des favoris en comparant le nom du voisin
+        //On vérifie pour chaque item qu'il est bien dans la liste des favoris
+        // en comparant le nom du voisin
         onView(allOf(withId(R.id.item_list_name_fav),
-                // 2ème temps : Dans la vue item_list_cl, retourne la vue-enfant en position 1 => item_list_name_fav
+                // 2ème temps : Dans la vue item_list_cl,
+                // retourne la vue-enfant en position 1 => item_list_name_fav
                 childAtPosition(
-                        // 1er temps : Dans la vue list_favori, retourne la vue-enfant de l'item en position 0 => item_list_cl
+                        // 1er temps : Dans la vue list_favori,
+                        // retourne la vue-enfant de l'item en position 0 => item_list_cl
                         childAtPosition(withId(R.id.list_favori), 0),
                         1),
                 isDisplayed()))
@@ -120,17 +124,14 @@ public class FavoriFragmentTest {
                 childAtPosition(childAtPosition(withId(R.id.list_favori), 1), 1),
                 isDisplayed()))
                 .check(matches(withText(mFavoriList.get(1).getName())));
-
         onView(allOf(withId(R.id.item_list_name_fav),
                 childAtPosition(childAtPosition(withId(R.id.list_favori), 2), 1),
                 isDisplayed()))
                 .check(matches(withText(mFavoriList.get(2).getName())));
-
         onView(allOf(withId(R.id.item_list_name_fav),
                 childAtPosition(childAtPosition(withId(R.id.list_favori), 3), 1),
                 isDisplayed()))
                 .check(matches(withText(mFavoriList.get(3).getName())));
-
     }
 
 

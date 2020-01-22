@@ -48,7 +48,8 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
 
     /**
-     * Change le statut du voisin en favori ou non en fonction de la valeur passée en paramètre
+     * Change le statut du voisin en favori ou non en fonction de la valeur
+     * passée en paramètre
      * @param pNeighbour : objet : voisin concerné par le changement de statut
      * @param pValue : boolean : nouvelle valeur que doit prendre le voisin
      */
@@ -57,9 +58,9 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         try {
             neighbours.get(neighbours.indexOf(pNeighbour)).setFavori(pValue);
         } catch (ArrayIndexOutOfBoundsException pE) {
-            Log.d("API", "changeStatutFavori: " + pNeighbour.getId() +  " - " + neighbours.get(0).getId());
+            Log.d("API", "changeStatutFavori: " + pNeighbour.getId() +
+                    " - " + neighbours.get(0).getId());
         }
-
     }
 
 }

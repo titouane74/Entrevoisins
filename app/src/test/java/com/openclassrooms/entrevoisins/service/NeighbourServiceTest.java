@@ -50,10 +50,10 @@ public class NeighbourServiceTest {
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
 
         //Ajout d'un test complémentaire :
-        //Vérification que le voisin supprimé de la liste des voisins n'est plus non plus dans la liste des favoris
+        //Vérification que le voisin supprimé de la liste des voisins n'est
+        // plus non plus dans la liste des favoris
         List<Neighbour> expectedNeighboursDel = service.getNeighboursFavori();
         assertFalse(expectedNeighboursDel.contains(neighbourToDelete));
-
     }
 
     /**
@@ -128,8 +128,6 @@ public class NeighbourServiceTest {
 
         //Vérification que le voisin est toujours dans la liste des voisins
         assertTrue(service.getNeighbours().contains(lNeighbour));
-
-
     }
 
 }
