@@ -54,11 +54,11 @@ Exécutions et résultats des tests instrumentalisés :
 
 	- ouvrir le fichier : FavoriFragmentTest.java
 	- lancer l'exécution sur la class FavoriFragmentTest
-	- résultat d'exécution dans le reposotiry Entrevoisins/TestResult/ :  Passed - Test Results - FavoriFragmentTest.html
+	- résultat d'exécution dans le reposotiry Entrevoisins/TestResult/ :  Passed UI - Test Results - FavoriFragmentTest.html
 
 	- ouvrir le fichier : NeighbourActivityTest.java
 	- lancer l'exécution sur la class NeighbourActivityTest
-	- résultat d'exécution dans le reposotiry Entrevoisins/TestResult/ :  Passed - Test Results - NeighbourActivityTest.html
+	- résultat d'exécution dans le reposotiry Entrevoisins/TestResult/ :  Passed UI - Test Results - NeighbourActivityTest.html
 
 La License :
 ============
